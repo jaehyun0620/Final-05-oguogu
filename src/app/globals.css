@@ -41,6 +41,6 @@
 
 @layer utilities {
   body {
-    @apply bg-oguogu-white font-baedal-Jua;
+    @apply bg-oguogu-white font-baedal-Jua text-oguogu-black;
   }
 }
