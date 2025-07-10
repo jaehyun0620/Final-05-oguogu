@@ -8,10 +8,7 @@ export default function CategoryItem({
   category,
 }: CategoryItemType) {
   return (
-    <Link
-      href={`/category/product?type=${type}`}
-      className="flex flex-col gap-2"
-    >
+    <Link href={`/product?type=${type}`} className="flex flex-col gap-2">
       <Image
         src={`/images/category-${order}-${type}.webp`}
         alt={type}
