@@ -3,7 +3,7 @@ const CLIENT_ID = 'febc13-final05-emjf'
 
 
 // 1. 회원 가입
-// data 양식에 맞게 입력을 하면 회원 가입이 진행된. 현재 객체로 정의 되어있는데 추후에 form으로 바로 넘어오도록 수정 필요함.
+// data 양식에 맞게 입력을 하면 회원 가입이 진행됨. 현재 객체로 정의 되어있는데 추후에 form으로 바로 넘어오도록 수정 필요함.
 export async function createUser(data : 
   {
     email: string;
@@ -66,7 +66,7 @@ export async function updateUser(_id: number, update: Partial<{
 
   try{
     const res = await fetch(`${API_URL}/users/${_id}`, {
-      method: 'POST',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         'Client-Id': CLIENT_ID,
