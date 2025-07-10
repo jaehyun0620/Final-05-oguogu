@@ -2,7 +2,6 @@
 name: 기타 작업
 about: 코드 작업 외 잔업을 진행합니다.
 title: '[할일] '
-labels: common
 type: task
 assignees: ''
 ---
