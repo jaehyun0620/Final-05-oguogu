@@ -2,6 +2,13 @@
 const API_URL = 'https://fesp-api.koyeb.app/market'
 const CLIENT_ID = 'febc13-final05-emjf'
 
+// CHECKLIST
+ // [x] 전체 회원 목록 조회
+ // [x] ID로 회원 검색 
+ // [x] 이메일 중복 여부 확인
+ // [x] 이름 중복 여부 확인
+ // [x] 특정 회원의 특정 정보 조회
+
 
 // 1. 전체 회원 목록 조회
 export async function getUsers() {

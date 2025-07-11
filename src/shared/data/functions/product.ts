@@ -3,6 +3,12 @@
 const API_URL = 'https://fesp-api.koyeb.app/market'
 const CLIENT_ID = 'febc13-final05-emjf'
 
+// CHECKLIST
+ // [x] 전체 상품 목록 조회
+ // [x] 특정 상품 조회
+
+ 
+
 // 1. 전체 상품 목록 조회
 export async function getProducts() {
   try{
