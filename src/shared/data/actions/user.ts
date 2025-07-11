@@ -1,6 +1,10 @@
 const API_URL = 'https://fesp-api.koyeb.app/market'
 const CLIENT_ID = 'febc13-final05-emjf'
 
+// 일반 유저 (2번) 인증 토큰
+const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjIsInR5cGUiOiJzZWxsZXIiLCJuYW1lIjoi64Sk7JikIiwiZW1haWwiOiJzMUBtYXJrZXQuY29tIiwiaW1hZ2UiOiIvZmlsZXMvZmViYzEzLWZpbmFsMDUtZW1qZi91c2VyLW5lby5wbmciLCJsb2dpblR5cGUiOiJlbWFpbCIsImlhdCI6MTc1MjE5NzI0OCwiZXhwIjoxNzUyMjgzNjQ4LCJpc3MiOiJGRUJDIn0.9LIJV9KkT_099ySlrNebTDe4QoS-yXvqRZskBVMpyns"
+
+
  // CHECKLIST
  // [x] 회원 가입
  // [x] 로그인
@@ -73,6 +77,7 @@ export async function updateUser(_id: number, update: Partial<{
     const res = await fetch(`${API_URL}/users/${_id}`, {
       method: 'PATCH',
       headers: {
+        'Authorization': `Bearer ${TOKEN}`,
         'Content-Type': 'application/json',
         'Client-Id': CLIENT_ID,
       },
