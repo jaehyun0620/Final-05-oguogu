@@ -2,7 +2,7 @@
 name: 기능 요청
 about: 새로운 기능 또는 개선 사항을 제안합니다.
 title: '[기능 요청] 원하는 기능 설명'
-labels: enhancement
+type: feature
 assignees: ''
 ---
 
@@ -17,3 +17,7 @@ assignees: ''
 ## 파일 경로
 
 src/
+
+## 프로덕트 백로그
+
+작업 전 해당 과업에 해당하는 요구사항 명세 항목과 프로덕트 백로그 항목을 확인하고 진행해주세요.
