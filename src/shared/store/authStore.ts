@@ -2,25 +2,25 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 // 임시로 _id, 이름, 타입만 전역에서 바로 확인할 수 있도록 설정 (추후 확장 가능)
-interface UserInfo {
+interface userInfo {
   _id : number;
   name : string;
   type : 'user' | 'seller' | 'admin';
 }
 
-// Zustand 스토어 타입
-interface AuthState {
+// 인증 zustand 스토어 타입
+interface authState {
   token : string | null;
-  userInfo : UserInfo | null;
+  userInfo : userInfo | null;
   isLoggedIn : boolean;
 
   setToken : (token : string) => void;
-  setUserInfo : (info : UserInfo) => void;
+  setUserInfo : (info : userInfo) => void;
   logout: () => void;
 }
 
 // Zustand store 생성 (persist 적용 -> 로컬 스토리지에서 값을 읽어와 자동으로 저장하기 위함)
-export const useAuthStore = create<AuthState>()(
+export const useAuthStore = create<authState>()(
   persist((set) => ({
 
       token: null,
@@ -35,7 +35,7 @@ export const useAuthStore = create<AuthState>()(
         })),
 
       // 로그인 후 사용자 정보를 저장
-      setUserInfo: (info : UserInfo) =>
+      setUserInfo: (info : userInfo) =>
         set(() => ({
           userInfo: info,
         })),
