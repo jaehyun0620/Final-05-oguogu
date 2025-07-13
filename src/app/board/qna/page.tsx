@@ -1,5 +1,3 @@
-export default function Home() {
-  return (
-    <h1>Final-Project-oguogu v02</h1>
-  );
+export default function QnA() {
+  return <h1>자주 묻는 질문 페이지</h1>;
 }
