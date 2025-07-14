@@ -1,3 +1,4 @@
+import SlideBanner from '@/components/layouts/Banner/SlideBanner';
 import {
   FilteredTextCategory,
   ImageCategory,
@@ -12,6 +13,7 @@ export default async function Home() {
     <>
       <Header cartItemCount={4} />
       <Navigation />
+      <SlideBanner />
       <ImageCategory />
       <TextCategory />
       <FilteredTextCategory />
