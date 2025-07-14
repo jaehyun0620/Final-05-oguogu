@@ -1,14 +1,17 @@
-import { CategoryItemType } from '@/components/elements/CategoryItem/CategoryItem.type';
+import { ImageCategoryItemType } from '@/components/elements/CategoryItem/CategoryItem.type';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function CategoryItem({
+export function ImageCategoryItem({
   type,
   order,
   category,
-}: CategoryItemType) {
+}: ImageCategoryItemType) {
   return (
-    <Link href={`/product?type=${type}`} className="flex flex-col gap-2">
+    <Link
+      href={`/product?type=${type}`}
+      className="flex flex-col items-center gap-2"
+    >
       <Image
         src={`/images/category-${order}-${type}.webp`}
         alt={type}
@@ -18,4 +21,8 @@ export default function CategoryItem({
       <h3 className="text-[10px]">{category}</h3>
     </Link>
   );
+}
+
+export function TextCategoryItem() {
+  return <></>;
 }
