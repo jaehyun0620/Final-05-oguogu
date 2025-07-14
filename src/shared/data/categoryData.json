@@ -63,7 +63,6 @@
     "children": []
   },
 
-
   { "code": "FEATURE_NEW", "label": "신상품" },
   { "code": "FEATURE_BEST", "label": "인기상품" },
   { "code": "FEATURE_SEASONAL", "label": "제철상품" },
@@ -72,19 +71,16 @@
   { "code": "FEATURE_SUBSCRIBE", "label": "구독상품" },
   { "code": "FEATURE_LIMITED", "label": "한정수량" },
 
-
   { "code": "STATUS_ONSALE", "label": "판매중" },
   { "code": "STATUS_SOLDOUT", "label": "품절" },
   { "code": "STATUS_HIDDEN", "label": "비노출" },
   { "code": "STATUS_STOP", "label": "판매중지" },
-
 
   { "code": "ORDER_PENDING", "label": "결제대기" },
   { "code": "ORDER_PAID", "label": "결제완료" },
   { "code": "ORDER_SHIPPED", "label": "배송중" },
   { "code": "ORDER_COMPLETED", "label": "배송완료" },
   { "code": "ORDER_CANCELLED", "label": "취소됨" },
-
 
   { "code": "SHIP_STANDARD", "label": "일반택배" },
   { "code": "SHIP_FREE", "label": "무료배송" },

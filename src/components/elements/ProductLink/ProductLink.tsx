@@ -1,20 +1,20 @@
-import { ProductLinkItemType } from '@/components/elements/ProductLinkItem/ProductLinkItem.type';
+import { ProductLinkType } from '@/components/elements/ProductLink/ProductLink.type';
 import Link from 'next/link';
 
 export default function ProductLinkItem({
-  queryParams = '',
-  item,
-}: ProductLinkItemType) {
+  queryParams,
+  linkTitle = '전체 상품',
+}: ProductLinkType) {
   if (queryParams !== '') {
-    queryParams = `/search?type=${queryParams}`;
+    queryParams = `/search?keyword=${queryParams}`;
   } else {
-    queryParams = `/product`;
+    queryParams = `/product/crop`;
   }
 
   return (
     <Link href={queryParams} className="flex items-center gap-2 text-xs">
       <span className="content-center">
-        <span className="text-oguogu-main">{item}</span> 보러 가기
+        <span className="text-oguogu-main">{linkTitle}</span> 보러 가기
       </span>
       <svg
         width="5"

@@ -1,17 +1,16 @@
-
 export type User = UserBasic | UserSeller | UserAdmin;
 
 export interface UserBasic {
-  _id: number, // 사용자 고유 ID
-  email: string, // 이메일 주소
-  name: string, // 사용자 이름
-  phone?: string, // 전화번호
-  address?: string, // 주소
-  type: 'user' // 사용자 유형
-  loginType?: 'email' | 'kakao' | 'google' | 'github', // 로그인 방식
-  image?: string, // 프로필 이미지
-  createdAt: string, // 생성일
-  updatedAt: string, // 수정일
+  _id: number; // 사용자 고유 ID
+  email: string; // 이메일 주소
+  name: string; // 사용자 이름
+  phone?: string; // 전화번호
+  address?: string; // 주소
+  type: 'user'; // 사용자 유형
+  loginType?: 'email' | 'kakao' | 'google' | 'github'; // 로그인 방식
+  image?: string; // 프로필 이미지
+  createdAt: string; // 생성일
+  updatedAt: string; // 수정일
   extra: {
     birthday: string;
     membershipClass?: string;
@@ -70,4 +69,3 @@ export interface UserAdmin {
   createdAt: string; // 생성일
   updatedAt: string; // 수정일
 }
-

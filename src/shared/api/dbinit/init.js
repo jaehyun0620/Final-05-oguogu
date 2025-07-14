@@ -18,21 +18,21 @@ const targetDir = process.env.TARGET_DIR;
 const { db, client, nextSeq } = await getDB(clientId);
 const sampleFileFolder = `./${targetDir}/uploadFiles`;
 const bucket = new GridFSBucket(db, {
-  bucketName: 'upload'
+  bucketName: 'upload',
 });
 
 // mongodb의 GridFS를 이용한 파일 저장
 async function uploadFileToGridFS(filename) {
   const filepath = `${sampleFileFolder}/${filename}`;
   return new Promise((resolve, reject) => {
-    try {  
+    try {
       const uploadStream = bucket.openUploadStream(filename);
       const fileStream = fs.createReadStream(filepath);
-  
-      fileStream.on('data', (chunk) => {
+
+      fileStream.on('data', chunk => {
         uploadStream.write(chunk);
       });
-      
+
       fileStream.on('end', () => {
         uploadStream.end(() => {
           console.log(`파일 업로드: ${filename}`);
@@ -44,7 +44,6 @@ async function uploadFileToGridFS(filename) {
       reject();
     }
   });
-  
 }
 
 // mongodb의 GridFS를 이용한 파일 삭제
@@ -56,22 +55,21 @@ async function deleteFileFromGridFS(filename) {
   }
 }
 
-
 // DB에 저장된 파일 목록 조회
 const getDBFiles = async () => {
   try {
     const files = await bucket.find().project({ filename: 1 }).toArray();
     return files.map(file => file.filename);
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
-}
+};
 
 async function initDB(initData) {
   // 데이터 등록
-  for(const collection in initData){
+  for (const collection in initData) {
     const data = initData[collection];
-    if(data.length > 0){
+    if (data.length > 0) {
       await db[collection].insertMany(data);
     }
     console.debug(`${collection} ${data.length}건 등록.`);
@@ -83,7 +81,7 @@ async function initDB(initData) {
 
   let uploadFiles = [];
   let deleteFiles = [];
-  switch(imageUpload){
+  switch (imageUpload) {
     case 'always':
       uploadFiles = folderFiles;
       // deleteFiles = dbFiles;
@@ -94,23 +92,23 @@ async function initDB(initData) {
 
       // 폴더의 파일이 db에 없으면 업로드
       uploadFiles = folderFiles.filter(file => !dbFiles.includes(file));
-      
+
       break;
     case 'none':
     default:
   }
 
-  for(const fileName of deleteFiles){
+  for (const fileName of deleteFiles) {
     await deleteFileFromGridFS(fileName);
   }
 
-  for(const fileName of uploadFiles){
+  for (const fileName of uploadFiles) {
     await uploadFileToGridFS(fileName);
   }
 }
 
 // 파일 컬렉션을 제외하고 모든 컬렉션 삭제
-async function dropDatabase(){
+async function dropDatabase() {
   // 데이터베이스 내 모든 컬렉션 이름 가져오기
   const collections = await db.listCollections().toArray();
 
@@ -123,9 +121,9 @@ async function dropDatabase(){
 }
 
 import(`./${targetDir}/data.js`).then(async ({ initData }) => {
-  if(imageUpload === 'always'){
+  if (imageUpload === 'always') {
     await db.dropDatabase(); // 전체 삭제
-  }else{
+  } else {
     await dropDatabase(); // 파일 컬렉션 제외하고 삭제
   }
 
@@ -133,5 +131,3 @@ import(`./${targetDir}/data.js`).then(async ({ initData }) => {
   client.close();
   console.info('DB 초기화 완료.');
 });
-
-
