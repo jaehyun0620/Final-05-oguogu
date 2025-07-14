@@ -5,6 +5,7 @@ import {
   TextCategory,
 } from '@/components/layouts/Category/Category';
 import Header from '@/components/layouts/Header/Header';
+import SearchHeader from '@/components/layouts/Header/SearchHeader';
 import Navigation from '@/components/layouts/Navigation/Navigation';
 import { ProductRecommendation } from '@/components/layouts/Recommendation/Recommendation';
 
@@ -22,6 +23,7 @@ export default async function Home() {
         subTitle="7월 한 달 간 체험 상품 20% 할인!"
         type="crop"
       />
+      <SearchHeader cartItemCount={4} />
     </>
   );
 }
