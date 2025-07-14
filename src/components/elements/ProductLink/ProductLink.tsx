@@ -1,14 +1,14 @@
-import { ProductLinkItemType } from '@/components/elements/ProductLinkItem/ProductLinkItem.type';
+import { ProductLinkType } from '@/components/elements/ProductLink/ProductLink.type';
 import Link from 'next/link';
 
 export default function ProductLinkItem({
-  queryParams = '',
-  item,
-}: ProductLinkItemType) {
+  queryParams,
+  item = '전체 상품',
+}: ProductLinkType) {
   if (queryParams !== '') {
-    queryParams = `/search?type=${queryParams}`;
+    queryParams = `/search?keyword=${queryParams}`;
   } else {
-    queryParams = `/product`;
+    queryParams = `/product/crop`;
   }
 
   return (

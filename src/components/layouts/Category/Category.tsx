@@ -1,7 +1,7 @@
 import CategoryItem from '@/components/elements/CategoryItem/CategoryItem';
-import ProductLinkItem from '@/components/elements/ProductLinkItem/ProductLinkItem';
+import ProductLink from '@/components/elements/ProductLink/ProductLink';
 
-export default function Category() {
+export function ImageCategory() {
   return (
     <section className="flex flex-col items-center px-[30px] py-4">
       <div className="flex gap-5 pb-6 ">
@@ -11,7 +11,7 @@ export default function Category() {
         <CategoryItem type="mushroom" order="04" category="버섯류" />
         <CategoryItem type="rice" order="05" category="곡류" />
       </div>
-      <ProductLinkItem item="전체 상품" queryParams="옥수수 " />
+      <ProductLink item="전체 상품" queryParams="" />
     </section>
   );
 }

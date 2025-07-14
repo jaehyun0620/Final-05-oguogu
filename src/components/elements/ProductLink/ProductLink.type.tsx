@@ -1,4 +1,4 @@
-export interface ProductLinkItemType {
+export interface ProductLinkType {
   queryParams?: string;
   item: string;
 }
