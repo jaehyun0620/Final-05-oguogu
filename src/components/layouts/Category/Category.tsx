@@ -30,7 +30,7 @@ export function ImageCategory() {
  */
 export function TextCategory() {
   return (
-    <nav className="flex min-w-[320px]">
+    <nav className="flex min-w-[320px] max-w-[768px]">
       <TextCategoryItem
         params="crop"
         subParams=""
@@ -60,7 +60,7 @@ export function TextCategory() {
  */
 export function FilteredTextCategory() {
   return (
-    <nav className="flex min-w-[320px]">
+    <nav className="flex min-w-[320px] max-w-[768px]">
       <TextCategoryItem
         params="crop"
         subParams="tuber"
