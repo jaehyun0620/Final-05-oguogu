@@ -1,5 +1,11 @@
-export interface CategoryItemType {
-  type: 'fruit' | 'vegetable' | 'potato' | 'mushroom' | 'rice';
-  order: string;
-  category: string;
+export interface ImageCategoryItemType {
+  params: 'fruits' | 'verdure' | 'tuber' | 'fungi' | 'cereals';
+  title: string;
+}
+
+export interface TextCategoryItemType {
+  params: string;
+  subParams?: string;
+  title: string;
+  isClick: boolean;
 }
