@@ -6,14 +6,10 @@
   font-style: normal;
   font-display: swap;
   src:
-    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.woff2')
-      format('woff2'),
-    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.woff')
-      format('woff'),
-    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.otf')
-      format('opentype'),
-    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.ttf')
-      format('truetype');
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.otf') format('opentype'),
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.ttf') format('truetype');
 }
 
 @theme {
@@ -48,8 +44,8 @@
 /* 스크롤 바 숨기기 */
 .no-scrollbar {
   -ms-overflow-style: none; /* IE, Edge */
-  scrollbar-width: none;    /* Firefox */
+  scrollbar-width: none; /* Firefox */
 }
 .no-scrollbar::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari */
+  display: none; /* Chrome, Safari */
 }

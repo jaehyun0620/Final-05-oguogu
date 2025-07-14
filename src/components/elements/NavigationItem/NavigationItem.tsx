@@ -1,17 +1,15 @@
-import { NavigationItemType } from "@/components/elements/NavigationItem/NavigationItem.type";
-import Link from "next/link";
+import { NavigationItemType } from '@/components/elements/NavigationItem/NavigationItem.type';
+import Link from 'next/link';
 
-export default function NavigationItem({
-  item,
-  type,
-  isSelected = false,
-}: NavigationItemType) {
+export default function NavigationItem({ item, type, isSelected = false }: NavigationItemType) {
   return (
     <li>
       <Link href={`/${type}`}>
         {isSelected ? (
-          <span className="text-oguogu-white bg-oguogu-main-dark px-[8px] py-[6px] rounded-2xl">{item}</span>) 
-          : ( item )}
+          <span className="text-oguogu-white bg-oguogu-main-dark px-[8px] py-[6px] rounded-2xl">{item}</span>
+        ) : (
+          item
+        )}
       </Link>
     </li>
   );
