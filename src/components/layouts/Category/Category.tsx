@@ -5,11 +5,11 @@ export function ImageCategory() {
   return (
     <section className="flex flex-col items-center px-[30px] py-4">
       <div className="flex gap-5 pb-6 ">
-        <ImageCategoryItem type="tuber" category="서류" />
-        <ImageCategoryItem type="fruits" category="과실류" />
-        <ImageCategoryItem type="verdure" category="채소류" />
-        <ImageCategoryItem type="fungi" category="버섯류" />
-        <ImageCategoryItem type="cereals" category="곡류" />
+        <ImageCategoryItem category="tuber" categoryTitle="서류" />
+        <ImageCategoryItem category="fruits" categoryTitle="과실류" />
+        <ImageCategoryItem category="verdure" categoryTitle="채소류" />
+        <ImageCategoryItem category="fungi" categoryTitle="버섯류" />
+        <ImageCategoryItem category="cereals" categoryTitle="곡류" />
       </div>
       <ProductLink item="전체 상품" queryParams="" />
     </section>
