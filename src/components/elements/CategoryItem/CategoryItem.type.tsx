@@ -3,7 +3,7 @@ export interface ImageCategoryItemType {
   title: string;
 }
 
-export interface TextCategoryItem {
+export interface TextCategoryItemType {
   params: string;
   title: string;
 }
