@@ -1,5 +1,3 @@
-export default function Home() {
-  return (
-    <h1>Final-Project-oguogu v02</h1>
-  );
+export default function Notice() {
+  return <h1>공지사항 페이지</h1>;
 }
