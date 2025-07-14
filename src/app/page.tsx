@@ -11,7 +11,6 @@ export default async function Home() {
     <>
       <Header cartItemCount={4} />
       <Navigation />
-      <h1>Final-Project-oguogu v02</h1>
       <ImageCategory />
       <TextCategory />
       <FilteredTextCategory />
