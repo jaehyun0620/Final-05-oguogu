@@ -1,10 +1,7 @@
 import { ProductLinkType } from '@/components/elements/ProductLink/ProductLink.type';
 import Link from 'next/link';
 
-export default function ProductLinkItem({
-  queryParams,
-  item = '전체 상품',
-}: ProductLinkType) {
+export default function ProductLinkItem({ queryParams, item = '전체 상품' }: ProductLinkType) {
   if (queryParams !== '') {
     queryParams = `/search?keyword=${queryParams}`;
   } else {

@@ -5,22 +5,21 @@
 
  */
 
-
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 // 장바구니 상품 타입 (임시, 추후 필요시 확장 가능)
 interface cartItem {
-  _id : number;
-  product_id : number;
-  quantity : number;
+  _id: number;
+  product_id: number;
+  quantity: number;
   price: number;
   image?: string;
 }
 
 // 장바구니 zustand 상태 정의
 interface cartState {
-  items : cartItem[];
+  items: cartItem[];
 
   addItem: (item: cartItem) => void;
   removeItem: (product_id: number) => void;
@@ -28,20 +27,20 @@ interface cartState {
   clearCart: () => void;
 }
 
-
 export const useCartStore = create<cartState>()(
   persist(
     (set, get) => ({
       items: [],
 
       // 장바구니 추가
-      addItem: (item : cartItem) => {
-        const existing = get().items.find((i) => i.product_id === item.product_id);
+      addItem: (item: cartItem) => {
+        const existing = get().items.find(i => i.product_id === item.product_id);
         if (existing) {
           // 이미 있는 경우 수량만 증가
           set({
-            items: get().items.map((i) =>
-              i.product_id === item.product_id ? { ...i, quantity: i.quantity + item.quantity } : i)
+            items: get().items.map(i =>
+              i.product_id === item.product_id ? { ...i, quantity: i.quantity + item.quantity } : i,
+            ),
           });
         } else {
           // 새 상품 추가
@@ -50,28 +49,25 @@ export const useCartStore = create<cartState>()(
       },
 
       // 장바구니에서 상품 제거
-      removeItem: (product_id) =>
+      removeItem: product_id =>
         set({
-          items: get().items.filter((i) => i.product_id !== product_id),
+          items: get().items.filter(i => i.product_id !== product_id),
         }),
 
-      // 상품 수량 변경 
+      // 상품 수량 변경
       updateQuantity: (product_id, quantity) =>
         set({
-          items: get().items.map((i) =>
-            i.product_id === product_id ? { ...i, quantity } : i
-          ),
+          items: get().items.map(i => (i.product_id === product_id ? { ...i, quantity } : i)),
         }),
 
-      // 장바구니 비우기 
-      clearCart: () => set({ items: [] })
+      // 장바구니 비우기
+      clearCart: () => set({ items: [] }),
     }),
     {
-      name: "cart-storage", // localStorage key
-    }
-  )
+      name: 'cart-storage', // localStorage key
+    },
+  ),
 );
-
 
 /*
 사용 예시
