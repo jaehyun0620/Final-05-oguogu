@@ -1,8 +1,9 @@
 export interface ImageCategoryItemType {
-  category: 'fruits' | 'verdure' | 'tuber' | 'fungi' | 'cereals';
-  categoryTitle: string;
+  params: 'fruits' | 'verdure' | 'tuber' | 'fungi' | 'cereals';
+  title: string;
 }
 
 export interface TextCategoryItem {
-  type: 'string';
+  params: string;
+  title: string;
 }
