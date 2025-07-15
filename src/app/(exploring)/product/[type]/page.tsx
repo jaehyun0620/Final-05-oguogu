@@ -7,7 +7,7 @@ export default function ProductListByType() {
       <h2>experience : 체험 상품</h2>
       <h2>gardening : 텃밭 상품</h2>
       <h2>crop : 농산물 상품</h2>
-      <CropItem />
+      <CropItem _id={1} name="쫀득쫀든 대학 미백 찰옥수수 30개입" originPrice="11,800" />
     </>
   );
 }

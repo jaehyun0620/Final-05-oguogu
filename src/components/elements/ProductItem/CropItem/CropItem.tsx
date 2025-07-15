@@ -1,28 +1,42 @@
+import InteractionButton from '@/components/elements/InteractionButton/InteractionButton';
+import Badge from '@/components/elements/ProductItem/Badge/Badge';
+import { CropItemType } from '@/components/elements/ProductItem/CropItem/CropItem.type';
 import Image from 'next/image';
+import Link from 'next/link';
 
-// export default function CropItem({ _id }: CropItemType) {
-//   return (
-//     <div className="flex flex-col gap-4 w-[140px] h-[330px]">
-//       <Image src={`/crop/${_id}`} alt="" width={140} height={186.67} />
-//     </div>
-//   );
-// }
-export default function CropItem() {
+export default function CropItem({ _id, name, originPrice }: CropItemType) {
   return (
     <div className="flex flex-col gap-4 w-[140px] h-[330px] ">
-      <Image src={`/images/crop/crop-001.png`} alt="" width={140} height={186.67} className="rounded-[8px]" />
+      {/* 상품 이미지 및 뱃지 영역 */}
+      <Link href={`/product/crop/veggie/${_id}`} className="flex">
+        {/* 대표 이미지 */}
+        {/*이미지를 하드코딩 해둔 상태 추후 동적으로 관리해야 함*/}
+        <Image src={`/images/crop/crop-001.png`} alt="" width={140} height={186.67} className="rounded-[8px]" />
+        {/* 뱃지 (제철 상품, 인기 상품 등) */}
+        <div className="absolute left-2">
+          <Badge bgColor="bg-oguogu-main-dark" textColor="text-oguogu-white" content="제철 상품" />
+          <Badge bgColor="bg-oguogu-yellow" textColor="text-oguogu-black" content="인기 상품" />
+        </div>
+      </Link>
+      {/* 텍스트 정보 영역 */}
       <div className="flex flex-col gap-1">
+        {/* 판매자 정보 */}
         <div className="flex gap-1 items-center">
           <Image src="/images/product-hatIcon.svg" alt="농사꾼 모자 아이콘" width={16} height={16} />
           <p className="text-[10px]">돌쇠네농산물</p>
         </div>
-        <p className="text-[14px] tracking-[-0.28px] leading-4">쫀득쫀득 대학 미백 찰옥수수 30개입</p>
+        {/* 상품명 */}
+        <Link href={`/product/crop/veggie/${_id}`} className="text-[14px] tracking-[-0.28px] leading-4">
+          {name}
+        </Link>
+        {/* 가격 정보 */}
         <div className="text-[12px] flex gap-1">
           <span className="text-oguogu-main">59%</span>
-          <span>11,800원</span>
+          <span>{originPrice}원</span>
         </div>
+        {/* 좋아요 & 별점 */}
         <div className="text-[8px] flex gap-2 text-oguogu-gray-3">
-          <div className="flex gap-[2px] ">
+          <div className="flex gap-[2px]">
             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none">
               <path
                 d="M6.525 0.666626C5.742 0.666626 4.9905 1.01976 4.5 1.57344C4.0095 1.01976 3.258 0.666626 2.475 0.666626C1.089 0.666626 0 1.71731 0 3.06445C0 4.70804 1.53 6.05518 3.8475 8.09115L4.5 8.66663L5.1525 8.09115C7.47 6.05518 9 4.70804 9 3.06445C9 1.71731 7.911 0.666626 6.525 0.666626Z"
@@ -42,9 +56,8 @@ export default function CropItem() {
           </div>
         </div>
       </div>
-      <div>
-        <button>임시 버튼</button>
-      </div>
+      {/*상품 등록 버튼 */}
+      <InteractionButton type="crop" />
     </div>
   );
 }
