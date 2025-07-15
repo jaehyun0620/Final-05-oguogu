@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, Search, ShoppingCart } from 'lucide-react';
+import TopRatedItem from '@/components/elements/TopRatedItem/TopRatedItem';
 
 interface SearchHeaderProps {
   cartItemCount?: number;
@@ -18,6 +19,7 @@ export default function SearchHeader({ cartItemCount = 0 }: SearchHeaderProps) {
   };
 
   return (
+    <>
     <header className="bg-amber-200 w-full max-w-[320px] mx-auto h-12 flex items-center justify-between relative px-2">
       <Link href="/" >
         <ChevronLeft size={28} strokeWidth={1.5} />
@@ -56,5 +58,7 @@ export default function SearchHeader({ cartItemCount = 0 }: SearchHeaderProps) {
         </div>
       </div>
     </header>
+    <TopRatedItem />
+    </>
   );
 }
