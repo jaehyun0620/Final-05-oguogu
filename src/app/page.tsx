@@ -1,5 +1,7 @@
 import CommonButton from '@/components/elements/CommonButton/CommonButton';
 import Badge from '@/components/elements/ProductItem/Badge/Badge';
+import Filter from '@/components/elements/ProductItem/Filter/Filter';
+import Sort from '@/components/elements/ProductItem/Sort/Sort';
 import SlideBanner from '@/components/layouts/Banner/SlideBanner';
 import { FilteredTextCategory, ImageCategory, TextCategory } from '@/components/layouts/Category/Category';
 import Header from '@/components/layouts/Header/Header';
@@ -28,6 +30,8 @@ export default async function Home() {
       <Badge content="제철 상품" bgColor="bg-oguogu-main-dark" textColor="text-oguogu-white" />
       <Badge content="인기 상품" bgColor="bg-oguogu-yellow" textColor="text-oguogu-black" />
       <Badge content="🗓️ 마감 D-5" bgColor="bg-ogugu-blue-light" textColor="text-oguogu-white" />
+      <Sort />
+      <Filter />
     </>
   );
 }
