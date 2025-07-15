@@ -1,4 +1,4 @@
-import SelectBoxProps from '@/components/elements/SelectBox.tsx/SelectBox.type';
+import SelectBoxProps from '@/components/elements/SelectBox/SelectBox.type';
 // CHECKLIST
 // sort , filter 파일에서 기능 업데이트
 // [ ] 선택된 카테고리에 따라 화면 출력 필터링 하는 기능 만들어야함 - sort , filter

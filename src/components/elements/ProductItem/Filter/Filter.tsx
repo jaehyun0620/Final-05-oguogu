@@ -1,6 +1,6 @@
 'use client';
 
-import SelectBox from '@/components/elements/SelectBox.tsx/SelectBox';
+import SelectBox from '@/components/elements/SelectBox/SelectBox';
 import { useState } from 'react';
 
 export default function Filter() {
