@@ -5,11 +5,11 @@ export interface CropItemExtraType {
 }
 
 export interface CropItemType {
-  _id: string;
-  seller_id: string;
+  _id: number;
+  seller_id?: string;
   originPrice: string;
-  dcRate: string;
-  finPrice: string;
+  dcRate?: string;
+  finPrice?: string;
   name: string;
-  extra: CropItemExtraType;
+  extra?: CropItemExtraType;
 }
