@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function CropItem({ _id, name, originPrice }: CropItemType) {
   return (
-    <div className="flex flex-col gap-4 w-[140px] h-[330px] ">
+    <div className="flex flex-col gap-4 w-[140px] h-[332px] ">
       {/* 상품 이미지 및 뱃지 영역 */}
       <Link href={`/product/crop/veggie/${_id}`} className="flex">
         {/* 대표 이미지 */}
