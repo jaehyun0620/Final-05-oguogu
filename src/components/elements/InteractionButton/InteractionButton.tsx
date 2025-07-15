@@ -1,4 +1,5 @@
 import CommonButton from '@/components/elements/CommonButton/CommonButton';
+import Link from 'next/link';
 
 export default function InteractionButton({ type }: { type: 'crop' | 'garden' | 'experience' }) {
   const width: string = type === 'experience' ? '257px' : '109px';
@@ -14,12 +15,18 @@ export default function InteractionButton({ type }: { type: 'crop' | 'garden' | 
             />
           </svg>
         </button>
-        <CommonButton
-          feature={type === 'crop' ? '장바구니 담기' : '자세히 보기'}
-          textSize="text-[10px]"
-          width={`w-[${width}]`}
-          height="h-[22px]"
-        />
+        {type === 'experience' ? (
+          <Link href="/">
+            <CommonButton feature={'자세히 보기'} textSize="text-[10px]" width={`w-[${width}]`} height="h-[22px]" />
+          </Link>
+        ) : (
+          <CommonButton
+            feature={type === 'crop' ? '장바구니 담기' : '자세히 보기'}
+            textSize="text-[10px]"
+            width={`w-[${width}]`}
+            height="h-[22px]"
+          />
+        )}
       </div>
     </>
   );
