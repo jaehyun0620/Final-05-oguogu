@@ -1,3 +1,4 @@
+import CommonButton from '@/components/elements/CommonButton/CommonButton';
 import SlideBanner from '@/components/layouts/Banner/SlideBanner';
 import {
   FilteredTextCategory,
@@ -24,6 +25,24 @@ export default async function Home() {
         type="crop"
       />
       <SearchHeader cartItemCount={4} />
+      <CommonButton
+        feature="로그인"
+        textSize="text-[16px]"
+        width="w-[288px]"
+        height="h-[43px]"
+      />
+      <CommonButton
+        feature="자세히 보기"
+        textSize="text-[10px]"
+        width="w-[257px]"
+        height="h-[22px]"
+      />
+      <CommonButton
+        feature="장바구니 담기"
+        textSize="text-[10px]"
+        width="w-[109px]"
+        height="h-[22px]"
+      />
     </>
   );
 }
