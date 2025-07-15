@@ -1,4 +1,4 @@
-interface CommonButtonProps {
+export default interface CommonButtonProps {
   feature: string;
   textSize: string;
   width: string;
