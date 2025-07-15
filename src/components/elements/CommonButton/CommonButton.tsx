@@ -1,9 +1,6 @@
-export default function CommonButton({
-  feature,
-  textSize,
-  width,
-  height,
-}: CommonButtonProps) {
+import CommonButtonProps from '@/components/elements/CommonButton/CommonButton.type';
+
+export default function CommonButton({ feature, textSize, width, height }: CommonButtonProps) {
   return (
     <button
       className={`flex items-center justify-center text-center

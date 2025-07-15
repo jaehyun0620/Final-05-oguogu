@@ -1,10 +1,7 @@
 import CommonButton from '@/components/elements/CommonButton/CommonButton';
+import Badge from '@/components/elements/ProductItem/Badge/Badge';
 import SlideBanner from '@/components/layouts/Banner/SlideBanner';
-import {
-  FilteredTextCategory,
-  ImageCategory,
-  TextCategory,
-} from '@/components/layouts/Category/Category';
+import { FilteredTextCategory, ImageCategory, TextCategory } from '@/components/layouts/Category/Category';
 import Header from '@/components/layouts/Header/Header';
 import SearchHeader from '@/components/layouts/Header/SearchHeader';
 import Navigation from '@/components/layouts/Navigation/Navigation';
@@ -25,24 +22,12 @@ export default async function Home() {
         type="crop"
       />
       <SearchHeader cartItemCount={4} />
-      <CommonButton
-        feature="로그인"
-        textSize="text-[16px]"
-        width="w-[288px]"
-        height="h-[43px]"
-      />
-      <CommonButton
-        feature="자세히 보기"
-        textSize="text-[10px]"
-        width="w-[257px]"
-        height="h-[22px]"
-      />
-      <CommonButton
-        feature="장바구니 담기"
-        textSize="text-[10px]"
-        width="w-[109px]"
-        height="h-[22px]"
-      />
+      <CommonButton feature="로그인" textSize="text-[16px]" width="w-[288px]" height="h-[43px]" />
+      <CommonButton feature="자세히 보기" textSize="text-[10px]" width="w-[257px]" height="h-[22px]" />
+      <CommonButton feature="장바구니 담기" textSize="text-[10px]" width="w-[109px]" height="h-[22px]" />
+      <Badge content="제철 상품" bgColor="bg-oguogu-main-dark" textColor="text-oguogu-white" />
+      <Badge content="인기 상품" bgColor="bg-oguogu-yellow" textColor="text-oguogu-black" />
+      <Badge content="🗓️ 마감 D-5" bgColor="bg-ogugu-blue-light" textColor="text-oguogu-white" />
     </>
   );
 }

@@ -23,6 +23,7 @@ export async function createProduct(data: {
     const res = await fetch(`${API_URL}/seller/products`, {
       method: 'POST',
       headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
         'Client-Id': CLIENT_ID,
       },
