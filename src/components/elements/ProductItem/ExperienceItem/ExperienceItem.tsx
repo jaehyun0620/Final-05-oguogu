@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function ExperienceItem() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="min-w-[288px] flex flex-col gap-4">
       {/* 상품 이미지 및 뱃지 영역 */}
       <Link href={`/product/experience/1`} className="flex">
         {/* 대표 이미지 */}

@@ -15,7 +15,7 @@ export default function Title({
 
   if (type === 'crop') {
     itemType = (
-      <div className="flex gap-3 max-w-full overflow-auto hide-scrollbar">
+      <div className="flex gap-3 max-w-full overflow-x-scroll overflow-y-hidden hide-scrollbar">
         <CropItem _id={1} name="쫀득쫀득 대학 미백 찰옥수수 30개입" originPrice="11800" />
         <CropItem _id={1} name="쫀득쫀득 대학 미백 찰옥수수 30개입" originPrice="11800" />
         <CropItem _id={1} name="쫀득쫀득 대학 미백 찰옥수수 30개입" originPrice="11800" />
@@ -30,7 +30,7 @@ export default function Title({
     );
   } else if (type === 'experience') {
     itemType = (
-      <div className="flex gap-3 max-w-full overflow-auto hide-scrollbar">
+      <div className="flex gap-3 max-w-full overflow-x-scroll overflow-y-hidden hide-scrollbar">
         <ExperienceItem />
         <ExperienceItem />
         <ExperienceItem />
