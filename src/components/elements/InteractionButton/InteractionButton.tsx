@@ -2,11 +2,9 @@ import CommonButton from '@/components/elements/CommonButton/CommonButton';
 import Link from 'next/link';
 
 export default function InteractionButton({ type }: { type: 'crop' | 'garden' | 'experience' }) {
-  const width: string = type === 'experience' ? '257px' : '109px';
-
   return (
     <>
-      <div className="flex gap-2">
+      <div className="w-full flex basis-full gap-2">
         <button className="flex items-center justify-center border-1 rounded-[4px] border-oguogu-main bg-oguogu-white w-[23px] h-[22px] cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11" fill="none">
             <path
@@ -16,14 +14,13 @@ export default function InteractionButton({ type }: { type: 'crop' | 'garden' | 
           </svg>
         </button>
         {type === 'experience' ? (
-          <Link href="/">
-            <CommonButton feature={'자세히 보기'} textSize="text-[10px]" width={`w-[${width}]`} height="h-[22px]" />
+          <Link href="/" className="flex w-full">
+            <CommonButton feature={'자세히 보기'} textSize="text-[10px]" height="h-[22px]" />
           </Link>
         ) : (
           <CommonButton
             feature={type === 'crop' ? '장바구니 담기' : '자세히 보기'}
             textSize="text-[10px]"
-            width={`w-[${width}]`}
             height="h-[22px]"
           />
         )}
