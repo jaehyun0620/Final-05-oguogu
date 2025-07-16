@@ -1,4 +1,5 @@
 import CommonButton from '@/components/elements/CommonButton/CommonButton';
+import { PathCaseOne, PathCaseThree, PathCaseTwo } from '@/components/elements/Path/Path';
 import Badge from '@/components/elements/ProductItem/Badge/Badge';
 import Filter from '@/components/elements/ProductItem/Filter/Filter';
 import Sort from '@/components/elements/ProductItem/Sort/Sort';
@@ -32,6 +33,9 @@ export default async function Home() {
       <Badge content="🗓️ 마감 D-5" bgColor="bg-ogugu-blue-light" textColor="text-oguogu-white" />
       <Sort />
       <Filter />
+      <PathCaseOne title="옥수수" />
+      <PathCaseTwo title="옥수수" params="crops" subParams="veggie" />
+      <PathCaseThree title="옥수수" params="crops" subParams="veggie" />
     </>
   );
 }
