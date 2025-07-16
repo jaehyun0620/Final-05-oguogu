@@ -3,7 +3,7 @@
 import SelectBox from '@/components/elements/SelectBox/SelectBox';
 import { useState } from 'react';
 
-export default function Sort() {
+export function ProductSort() {
   const [selectedSort, setSelectedSort] = useState('recommend');
 
   const sortOptions = [
@@ -22,6 +22,23 @@ export default function Sort() {
       value={selectedSort}
       onChange={setSelectedSort}
       changeBoxSize={selectedSort === 'deadline' ? 'w-[92px]' : 'w-[62px]'}
+    />
+  );
+}
+export function ReviewSort() {
+  const [selectedSort, setSelectedSort] = useState('recommend');
+
+  const sortOptions = [{ value: 'high', label: '높은 별점 순' }];
+
+  return (
+    <SelectBox
+      label="정렬 기준"
+      name="sort"
+      id="sort"
+      options={sortOptions}
+      value={selectedSort}
+      onChange={setSelectedSort}
+      changeBoxSize={'w-[92px]'}
     />
   );
 }
