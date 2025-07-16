@@ -1,14 +1,49 @@
 'use client';
 
-import { BuyBoxOptionType } from '@/components/elements/BuyBoxForMobile/BuyBoxOption.type';
 import { useEffect, useState } from 'react';
+import { BuyBoxOptionType } from '@/components/elements/BuyBoxForMobile/BuyBoxOption.type';
+import BuyBoxOptionExtraItem from '@/components/elements/BuyBoxForMobile/BuyBoxOptionExtraItem';
+import { format } from 'date-fns';
+import { ko } from 'date-fns/locale';
+
+// 체험 상품 더미 데이터
+const rawData = [
+  {
+    _id: 1,
+    quantity: 16,
+    buyQuantity: 0,
+    extra: {
+      departureDate: new Date('2025-07-26T10:00:00'),
+    },
+  },
+  {
+    _id: 2,
+    quantity: 16,
+    buyQuantity: 4,
+    price: 10000,
+    name: '고구마캐기 체험',
+    extra: {
+      productType: 'experience',
+      departureDate: new Date('2025-07-26T14:00:00'),
+      maxQuantity: 4,
+    },
+  },
+  {
+    _id: 3,
+    quantity: 16,
+    buyQuantity: 16,
+    price: 10000,
+    name: '감자캐기 체험',
+    extra: {
+      productType: 'experience',
+      departureDate: new Date('2025-07-27T10:00:00'),
+      maxQuantity: 4,
+    },
+  },
+];
 
 /**
  * 상품 상세페이지 구매 버튼 클릭시 팝업되는 모달 컴포넌트 UI
- * @param name 상품명
- * @param price 상품가격
- * @param maxQuantity 최대 수량
- * @param type 상품 유형 - crop | experience | gardening
  */
 export default function BuyBoxOption({ name, price, maxQuantity = 1, type }: BuyBoxOptionType) {
   const [count, setCount] = useState(1);
@@ -30,6 +65,9 @@ export default function BuyBoxOption({ name, price, maxQuantity = 1, type }: Buy
     setTotalPrice(price * count);
   }, [price, count]);
 
+  // 체험 상품 데이터 추출
+  const data = rawData;
+
   return (
     <div className="text-base flex flex-col gap-6 p-4 rounded-se-xl rounded-ss-xl">
       {/* 상품명 */}
@@ -37,6 +75,38 @@ export default function BuyBoxOption({ name, price, maxQuantity = 1, type }: Buy
         <span className="text-xs text-oguogu-gray-4">상품명</span>
         <h3 className="text-xl max-w-full whitespace-nowrap overflow-hidden text-ellipsis">{name}</h3>
       </div>
+
+      {/* 날짜 선택 : 체험 상품 전용 */}
+      {type === 'experience' ? (
+        <div className="flex flex-col gap-2">
+          <span className="text-xs text-oguogu-gray-4">날짜 선택</span>
+          <div className="flex gap-3 max-w-full overflow-auto hide-scrollbar">
+            {/* 선택 가능 & 선택됨 */}
+            {data.map(item => {
+              const {
+                _id,
+                quantity,
+                buyQuantity,
+                extra: { departureDate },
+              } = item;
+
+              const formattedDate = format(item.extra.departureDate, 'M월 d일 (eee)', { locale: ko });
+              const formattedTime = format(item.extra.departureDate, 'HH:mm');
+
+              return (
+                <BuyBoxOptionExtraItem
+                  key={_id}
+                  date={formattedDate}
+                  time={formattedTime}
+                  count={quantity - buyQuantity}
+                />
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
 
       {/* 수량 선택 */}
       {type === 'gardening' ? (
