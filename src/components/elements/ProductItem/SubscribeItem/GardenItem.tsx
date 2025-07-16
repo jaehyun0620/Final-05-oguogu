@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function GardenItem() {
   return (
-    <div className="flex flex-col gap-4 w-[140px] h-[332px] ">
+    <div className="flex flex-col gap-4 w-[140px] h-[357px] ">
       {/* 상품 이미지 및 뱃지 영역 */}
       <Link href={`/product/crop/garden/1`} className="flex">
         {/* 대표 이미지 */}
