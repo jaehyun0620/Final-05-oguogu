@@ -1,16 +1,10 @@
 import { ProductLinkType } from '@/components/elements/ProductLink/ProductLink.type';
 import Link from 'next/link';
 
-export default function ProductLinkItem({ queryParams, linkTitle = '전체 상품' }: ProductLinkType) {
-  if (queryParams !== '') {
-    queryParams = `/search?keyword=${queryParams}`;
-  } else {
-    queryParams = `/product/crop`;
-  }
-
+export default function ProductLinkItem({ keywordParams, typeParams, linkTitle = '전체 상품' }: ProductLinkType) {
   return (
     <div className="flex justify-center border-b-1 border-b-oguogu-gray-2 pt-2 pb-4">
-      <Link href={queryParams} className="flex items-center gap-2 text-xs">
+      <Link href={`/search`} className="flex items-center gap-2 text-xs">
         <span className="content-center">
           <span className="text-oguogu-main">{linkTitle}</span> 보러 가기
         </span>

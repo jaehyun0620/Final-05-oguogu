@@ -1,4 +1,5 @@
 export interface ProductLinkType {
-  queryParams?: string;
+  keywordParams?: string;
+  typeParams?: string;
   linkTitle: string;
 }
