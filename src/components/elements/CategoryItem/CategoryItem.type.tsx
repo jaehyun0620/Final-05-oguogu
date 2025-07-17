@@ -1,5 +1,5 @@
 export interface ImageCategoryItemType {
-  params: 'fruits' | 'verdure' | 'tuber' | 'fungi' | 'cereals';
+  params: 'fruit' | 'veggie' | 'grain' | 'mushroom';
   title: string;
 }
 

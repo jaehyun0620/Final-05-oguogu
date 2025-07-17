@@ -6,16 +6,18 @@ import Link from 'next/link';
 
 export default function CropItem({ _id, name, originPrice }: CropItemType) {
   return (
-    <div className="flex flex-col gap-4 w-[140px] h-[332px] ">
+    <div className="flex flex-col gap-4 min-w-[140px] h-[332px] ">
       {/* 상품 이미지 및 뱃지 영역 */}
       <Link href={`/product/crop/veggie/${_id}`} className="flex">
-        {/* 대표 이미지 */}
-        {/*이미지를 하드코딩 해둔 상태 추후 동적으로 관리해야 함*/}
-        <Image src={`/images/crop/crop-001.png`} alt="" width={140} height={186.67} className="rounded-[8px]" />
-        {/* 뱃지 (제철 상품, 인기 상품 등) */}
-        <div className="absolute left-2">
-          <Badge bgColor="bg-oguogu-main-dark" textColor="text-oguogu-white" content="제철 상품" />
-          <Badge bgColor="bg-oguogu-yellow" textColor="text-oguogu-black" content="인기 상품" />
+        <div className="relative">
+          {/* 대표 이미지 */}
+          {/*이미지를 하드코딩 해둔 상태 추후 동적으로 관리해야 함*/}
+          <Image src={`/images/crop/crop-001.png`} alt="" width={140} height={186.67} className="rounded-[8px]" />
+          {/* 뱃지 (제철 상품, 인기 상품 등) */}
+          <div className="absolute top-0.5 left-1.5">
+            <Badge bgColor="bg-oguogu-main-dark" textColor="text-oguogu-white" content="제철 상품" />
+            <Badge bgColor="bg-oguogu-yellow" textColor="text-oguogu-black" content="인기 상품" />
+          </div>
         </div>
       </Link>
       {/* 텍스트 정보 영역 */}
