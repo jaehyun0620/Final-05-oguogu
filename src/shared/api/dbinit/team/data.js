@@ -9,11 +9,20 @@ export const initData = async (clientId, nextSeq) => {
     /**
      ** 회원 관리
      * 1. 관리자 => type: 'admin'
+     * - 관리자
      * 2. 판매자 => type: 'seller'
+     * - 흥부네농산물
+     * - 놀부네농산물
+     * - 서울상회
+     * - 성남농산
+     * - 제주농산물
      * 3. 사용자 => type: 'user'
+     * - 정길용
+     * - 김데레사
+     * - 정재인
      */
     user: [
-      /* 1. 관리자 : 1개 */
+      /* 1. 관리자 */
       {
         _id: await nextSeq('user'),
         email: 'admin@5959.com',
@@ -23,14 +32,15 @@ export const initData = async (clientId, nextSeq) => {
         address: '서울시 강남구 역삼동 123',
         type: 'admin',
         loginType: 'email',
-        image: `/files/${clientId}/user-muzi.png`,
+        image: `/files/${clientId}/admin-1-profile.png`,
         createdAt: getTime(-100, -60 * 60 * 3),
         updatedAt: getTime(-100, -60 * 60 * 3),
         extra: {
           birthday: '2000-01-01',
         },
       },
-      /* 2. 판매자 : 5개 */
+
+      /* 2. 판매자 */
       {
         _id: await nextSeq('user'),
         email: 'seller1@5959.com',
@@ -40,15 +50,23 @@ export const initData = async (clientId, nextSeq) => {
         address: '서울특별시 강남구 테헤란로 123',
         type: 'seller',
         loginType: 'email',
-        image: `/files/${clientId}/seller-01.png`,
+        image: `/files/${clientId}/seller-2-profile.png`,
         createdAt: getTime(-50),
         updatedAt: getTime(-30, -60 * 60 * 3),
         extra: {
+          // 상호명
           businessName: '흥부네농산물',
+
+          // 대표자명
           representativeName: '김흥부',
+
+          // 사업자 번호
           businessNumber: '123-45-67890',
+
+          // 대표 번호
           tel: '02-891-0123',
-          businessAddress: '서울특별시 강남구 테헤란로 123',
+
+          // 첨부 파일 : 사업자등록증, 통신판매업신고증
           businessLicenseImage: '/files/201/business-license.jpg',
           telecomRegistrationImage: '/files/201/telecom-cert.jpg',
 
@@ -71,15 +89,23 @@ export const initData = async (clientId, nextSeq) => {
         address: '부산광역시 해운대구 센텀중앙로 45',
         type: 'seller',
         loginType: 'email',
-        image: `/files/${clientId}/seller-02.png`,
+        image: `/files/${clientId}/seller-3-profile.png`,
         createdAt: getTime(-50),
         updatedAt: getTime(-30, -60 * 60 * 3),
         extra: {
+          // 상호명
           businessName: '놀부네농산물',
+
+          // 대표자명
           representativeName: '이놀부',
-          businessNumber: '123-45-67890',
+
+          // 사업자 번호
+          businessNumber: '343-21-45332',
+
+          // 대표 번호
           tel: '02-456-7891',
-          businessAddress: '부산광역시 해운대구 센텀중앙로 45',
+
+          // 첨부 파일 : 사업자등록증, 통신판매업신고증
           businessLicenseImage: '/files/201/business-license.jpg',
           telecomRegistrationImage: '/files/201/telecom-cert.jpg',
 
@@ -102,15 +128,23 @@ export const initData = async (clientId, nextSeq) => {
         address: '대구광역시 수성구 동대구로 456',
         type: 'seller',
         loginType: 'email',
-        image: `/files/${clientId}/seller-03.png`,
+        image: `/files/${clientId}/seller-4-profile.png`,
         createdAt: getTime(-50),
         updatedAt: getTime(-30, -60 * 60 * 3),
         extra: {
+          // 상호명
           businessName: '서울상회',
+
+          // 대표자명
           representativeName: '송서울',
-          businessNumber: '123-45-67890',
+
+          // 사업자 번호
+          businessNumber: '897-21-11235',
+
+          // 대표 번호
           tel: '02-987-6543',
-          businessAddress: '대구광역시 수성구 동대구로 456',
+
+          // 첨부 파일 : 사업자등록증, 통신판매업신고증
           businessLicenseImage: '/files/201/business-license.jpg',
           telecomRegistrationImage: '/files/201/telecom-cert.jpg',
 
@@ -133,15 +167,23 @@ export const initData = async (clientId, nextSeq) => {
         address: '경기도 성남시 분당구 판교역로 235',
         type: 'seller',
         loginType: 'email',
-        image: `/files/${clientId}/seller-04.png`,
+        image: `/files/${clientId}/seller-5-profile.png`,
         createdAt: getTime(-50),
         updatedAt: getTime(-30, -60 * 60 * 3),
         extra: {
+          // 상호명
           businessName: '성남농산',
+
+          // 대표자명
           representativeName: '박성남',
-          businessNumber: '123-45-67890',
+
+          // 사업자 번호
+          businessNumber: '342-42-18753',
+
+          // 대표 번호
           tel: '02-987-6543',
-          businessAddress: '경기도 성남시 분당구 판교역로 235',
+
+          // 첨부 파일 : 사업자등록증, 통신판매업신고증
           businessLicenseImage: '/files/201/business-license.jpg',
           telecomRegistrationImage: '/files/201/telecom-cert.jpg',
 
@@ -164,15 +206,23 @@ export const initData = async (clientId, nextSeq) => {
         address: '제주특별자치도 제주시 연삼로 123-4',
         type: 'seller',
         loginType: 'email',
-        image: `/files/${clientId}/seller-05.png`,
+        image: `/files/${clientId}/seller-6-profile.png`,
         createdAt: getTime(-50),
         updatedAt: getTime(-30, -60 * 60 * 3),
         extra: {
+          // 상호명
           businessName: '제주농산물',
+
+          // 대표자명
           representativeName: '최제주',
-          businessNumber: '123-45-67890',
-          tel: '02-987-6543',
-          businessAddress: '제주특별자치도 제주시 연삼로 123-4',
+
+          // 사업자 번호
+          businessNumber: '546-25-11231',
+
+          // 대표 번호
+          tel: '070-223-1212',
+
+          // 첨부 파일 : 사업자등록증, 통신판매업신고증
           businessLicenseImage: '/files/201/business-license.jpg',
           telecomRegistrationImage: '/files/201/telecom-cert.jpg',
 
@@ -186,7 +236,8 @@ export const initData = async (clientId, nextSeq) => {
           },
         },
       },
-      /* 사용자 : 3개 */
+
+      /* 3. 사용자 */
       {
         _id: await nextSeq('user'),
         email: 'user1@gmail.com',
@@ -196,12 +247,12 @@ export const initData = async (clientId, nextSeq) => {
         address: '서울 강서구 염창동 300',
         type: 'user',
         loginType: 'email',
-        image: `/files/${clientId}/user-muzi.webp`,
+        image: `/files/${clientId}/user-profile-MC03.svg`,
         createdAt: getTime(-20, -60 * 30),
         updatedAt: getTime(-10, -60 * 60 * 12),
         extra: {
           birthday: '1990-01-01',
-          membershipClass: 'MC01', // 예: 'MC01(씨앗)', 'MC02(새싹)', ...
+          membershipClass: 'MC03', // 예: 'MC01(seed)' -> 'MC02(sprout)' -> 'MC03(grain)'
           coupons: [
             { id: 'C001', name: '5% 할인 쿠폰', expiresAt: '2025-08-01' },
             { id: 'C002', name: '무료배송 쿠폰', expiresAt: '2025-09-15' },
@@ -221,12 +272,12 @@ export const initData = async (clientId, nextSeq) => {
         address: '경기 성남시 수정구 창곡동 572',
         type: 'user',
         loginType: 'email',
-        image: `/files/${clientId}/user-muzi.webp`,
+        image: `/files/${clientId}/user-profile-MC02.svg`,
         createdAt: getTime(-20, -60 * 30),
         updatedAt: getTime(-10, -60 * 60 * 12),
         extra: {
           birthday: '1990-07-07',
-          membershipClass: 'MC02', // 예: 'MC01(씨앗)', 'MC02(새싹)', ...
+          membershipClass: 'MC02',
           coupons: [
             { id: 'C001', name: '5% 할인 쿠폰', expiresAt: '2025-08-01' },
             { id: 'C002', name: '무료배송 쿠폰', expiresAt: '2025-09-15' },
@@ -246,12 +297,12 @@ export const initData = async (clientId, nextSeq) => {
         address: '서울 송파구 신천동 29',
         type: 'user',
         loginType: 'email',
-        image: `/files/${clientId}/user-muzi.webp`,
+        image: `/files/${clientId}/user-profile-MC03.svg`,
         createdAt: getTime(-20, -60 * 30),
         updatedAt: getTime(-10, -60 * 60 * 12),
         extra: {
           birthday: '2000-02-02',
-          membershipClass: 'MC03', // 예: 'MC01(씨앗)', 'MC02(새싹)', 'MC03(열매)', 'MC04(나무)'
+          membershipClass: 'MC01',
           coupons: [
             { id: 'C001', name: '5% 할인 쿠폰', expiresAt: '2025-08-01' },
             { id: 'C002', name: '무료배송 쿠폰', expiresAt: '2025-09-15' },
@@ -267,59 +318,76 @@ export const initData = async (clientId, nextSeq) => {
     /**
      ** 상품 관리
      * 1. 일반 상품 => extra { productType: 'crop' }
-     * - seller_id: 2 (김흥부) * 5
-     * - seller_id: 3 (이놀부) * 5
-     * - seller_id: 4 (송서울) * 5
-     * - seller_id: 5 (박성남) * 5
-     * - seller_id: 6 (최제주) * 5
+     * [ ] seller_id: 2 * 5
+     * [ ] seller_id: 3 * 5
+     * [ ] seller_id: 4 * 5
+     * [ ] seller_id: 5 * 5
+     * [ ] seller_id: 6 * 5
 
      * 2. 체험 상품 => extra { productType: 'experience' }
-     * - seller_id: 2 (김흥부) * 2
-     * - seller_id: 3 (이놀부) * 2
+     * [ ] seller_id: 2 * 2
+     * [ ] seller_id: 3 * 2
 
      * 3. 텃밭 상품 => extra { productType: 'gardening' }
-     * - seller_id: 4 (송서울) * 3
-     * - seller_id: 5 (박성남) * 3
-     * - seller_id: 6 (최제주) * 3
+     * [ ] seller_id: 4 * 3
+     * [ ] seller_id: 5 * 3
+     * [ ] seller_id: 6 * 3
      * */
     product: [
       /* 1. 농산물 상품 */
       {
         _id: await nextSeq('product'),
         seller_id: 2,
+        name: "남다른 쫀득함! 신품종 전남 해남 25년 '햇' 오색촬옥수수",
+        content: '씹으면 씹을수록 느껴지는 달짝지근함과 쫀득쫀득한 찰진 식감',
         price: 29900,
         shippingFees: 3000,
-        show: true,
-        active: true,
-        name: "남다른 쫀득함! 신품종 전남 해남 25년 '햇' 오색촬옥수수",
         quantity: 1000,
         buyQuantity: 500,
+        show: true,
+        active: true,
         mainImages: [
           {
-            path: `/files/${clientId}/sample-dog.jpg`,
-            name: 'sample-dog.jpg',
-            originalname: '스턴트 독.jpg',
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop1-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
           },
         ],
-        content: `
-          <div class="product-detail">
-            <p>방금 재배한 국산 딸기</p>
-          </div>`,
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),
         extra: {
-          productType: 'crop',
-          category: ['옥수수', '찰옥수수'],
-          origin: '국산', // 원산지
-          productionPlace: '전라남도 해남군', // 생산지
-          composition: '10개', // 상품 구성
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          type: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수', '찰옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '전라남도 해남군',
+
+          // 상품 구성
+          composition: '10개',
           deliveryInfo: '평일 1~2일 소요',
-          detailInfo: '청정지역 평창에서 자란 특상 감자입니다.',
           likeCount: 124,
           sort: 3,
 
           // 할인율
           dcRate: 40,
+
+          // 최대 구매 가능 수량
+          productCnt: 10,
 
           // 뱃지용
           isNew: true, // 신상품
@@ -329,57 +397,84 @@ export const initData = async (clientId, nextSeq) => {
           isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭 전용)
         },
       },
+
       /* 2. 체험 상품 */
       {
         _id: await nextSeq('product'),
         seller_id: 2,
-        price: 22800,
+        name: '강원도 농촌 체험 2박 3일',
+        content: '강원도 농촌 체험 2박 3일 체험하고 힐링하고 재밌어요',
+        price: 49900,
         shippingFees: 0,
+        quantity: 20,
+        buyQuantity: 5,
         show: true,
         active: true,
-        name: '강원도 농촌 체험 2박 3일',
-        quantity: 320,
-        buyQuantity: 310,
         mainImages: [
           {
-            path: `/files/${clientId}/sample-dog.jpg`,
-            name: 'sample-dog.jpg',
-            originalname: '스턴트 독.jpg',
+            path: `/files/${clientId}/seller-2-2-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
           },
         ],
-        content: `
-          <div class="product-detail">
-            <p>강원도 농촌 체험 2박 3일 체험하고 힐링하고 재밌어요</p>
-          </div>`,
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),
         extra: {
-          productType: 'experience',
-          category: ['TR01', 'TR0101'],
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          type: 'experience',
+
+          // 2차 카테고리
+          category: [],
+
+          // 3차 카테고리
+          filter: [],
+
+          // 체험 장소 위치
           region: '강원도 원주',
-          departureDate: '2025-08-01',
-          returnDate: '2025-08-03',
+
+          // 출발 지역
           meetingPlace: '강남역 1번출구',
-          maxPeople: 20,
-          minPeople: 5,
-          peopleCnt: 6,
+
+          // 출발 날짜
+          departureDate: '2025-08-01',
+
+          // 도착 날짜
+          returnDate: '2025-08-03',
+
+          // 할인율
+          dcRate: 40,
+
+          // 최대 예약 가능 인원 수
+          productCnt: 6,
+
+          // 포함 상품
           includedItems: ['왕복 버스', '숙박 2박', '감자캐시 체험', '조식'],
+
+          // 미포함 상품
           notIncludedItems: ['중식', '석식'],
+
+          // 일정
           schedule: [
             { day: 1, title: '강원도 도착 및 이장님 인사', details: '이장님의 연설 듣기 딸기 농장 방문하기' },
             { day: 2, title: '중문 관광', details: '유채꽃밭, 오설록 티뮤지엄 방문' },
           ],
-          guideInfo: {
-            name: '김여행',
-            contact: '010-1234-5678',
-          },
+
+          // 여행사 정보
           travelAgency: {
             name: '트래블코리아',
             license: 'T-2024-1234',
           },
 
-          // 할인율
-          dcRate: 40,
+          // 가이드 정보
+          guideInfo: {
+            name: '김여행',
+            contact: '010-1234-5678',
+          },
 
           // 뱃지용
           isNew: true, // 신상품
@@ -388,42 +483,57 @@ export const initData = async (clientId, nextSeq) => {
           isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭)
         },
       },
+
       /* 3. 텃밭 상품 */
       {
         _id: await nextSeq('product'),
         seller_id: 2,
+        name: '김이장님 텃밭',
+        content: '원주시 김이장님의 텃밭을 이용해보세요',
         price: 22800,
         shippingFees: 0,
-        show: true,
-        active: true,
-        name: '김이장님 텃밭',
         quantity: 20,
         buyQuantity: 5,
+        show: true,
+        active: true,
         mainImages: [
           {
-            path: `/files/${clientId}/sample-dog.jpg`,
-            name: 'sample-dog.jpg',
-            originalname: '스턴트 독.jpg',
+            path: `/files/${clientId}/seller-2-3-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-3-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
           },
         ],
-        content: `
-          <div class="product-detail">
-            <p>원주시 김이장님의 텃밭을 이용해보세요!!!!</p>
-          </div>`,
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),
         extra: {
-          productType: 'gardening',
-          totalPlots: 8,
-          farmName: '김농부의 텃밭',
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          type: 'gardening',
+
+          // 2차 카테고리
+          category: [],
+
+          // 3차 카테고리
+          filter: [],
+
+          // 텃밭 위치
+          region: '전북 남원시 금동길 123',
+
+          // 판매 마감일
           deadline: '2025년 4월 15일',
+
+          // 수확 예정일
           harvestExpectedDate: '2025년 7월 중',
-          vegetables: ['방울토마토', '고추', '상추'],
-          farmLocation: '전북 남원시 금동길 123',
-          experienceInfo: '매주 작물 성장 사진 제공',
 
           // 할인율
           dcRate: 40,
+
+          // 최대 구매 가능 수량
+          productCnt: 1,
 
           // 뱃지용
           isNew: true, // 신상품
@@ -431,60 +541,74 @@ export const initData = async (clientId, nextSeq) => {
           isLowStock: false, // 품절 임박 상품
           isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭)
 
-          // 텃밭 구독 사용자에게 보여지는 내용
+          // 텃밭 구독자 제공 정보 (주기별 상품 상태 메시지)
           period: [
+            {
+              date: '4월 초',
+              image: 'src',
+              status: 'seeding',
+              content: '싹을 심었습니다.',
+            },
             {
               date: '5월 초',
               image: 'src',
+              status: 'growing',
               content: '싹이 자랐습니다.',
             },
             {
               date: '6월 초',
               image: 'src',
+              status: 'growin',
               content: '열매가 생겼습니다.',
             },
             {
               date: '7월 초',
               image: 'src',
+              status: 'havested',
               content: '재배를 했습니다.',
             },
           ],
 
+          // 텃밭 판매 현황 (상호작용 UI용)
           plots: [
             {
               plotNumber: 1,
-              name: 'A구역',
+              name: 'A-1',
               isAvailable: false,
               ownerUserId: 1002,
               plantedAt: '2025-07-01',
-              status: 'growing', // available | growing | harvested
+              status: 'seeding', // available | seeding | growing | harvested
             },
             {
               plotNumber: 2,
-              name: 'B구역',
+              name: 'A-2',
               isAvailable: true,
               ownerUserId: null,
-              status: 'available',
+              plantedAt: '2025-07-01',
+              status: 'seeding', // available | seeding | growing | harvested
             },
             {
               plotNumber: 3,
-              name: 'C구역',
+              name: 'A-3',
               isAvailable: true,
               ownerUserId: null,
+              plantedAt: null,
               status: 'available',
             },
             {
               plotNumber: 4,
-              name: 'D구역',
+              name: 'A-4',
               isAvailable: true,
               ownerUserId: null,
+              plantedAt: null,
               status: 'available',
             },
             {
               plotNumber: 5,
-              name: 'F구역',
+              name: 'A-5',
               isAvailable: true,
               ownerUserId: null,
+              plantedAt: null,
               status: 'available',
             },
           ],
