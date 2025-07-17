@@ -6,15 +6,20 @@ function getTime(day = 0, second = 0) {
 
 export const initData = async (clientId, nextSeq) => {
   return {
-    // 회원
+    /**
+     ** 회원 관리
+     * 1. 관리자 => type: 'admin'
+     * 2. 판매자 => type: 'seller'
+     * 3. 사용자 => type: 'user'
+     */
     user: [
-      //관리자 데이터
+      /* 1. 관리자 : 1개 */
       {
         _id: await nextSeq('user'),
-        email: 'admin@market.com',
+        email: 'admin@5959.com',
         password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
-        name: '무지',
-        phone: '01011112222',
+        name: '관리자',
+        phone: '01059595959',
         address: '서울시 강남구 역삼동 123',
         type: 'admin',
         loginType: 'email',
@@ -22,34 +27,34 @@ export const initData = async (clientId, nextSeq) => {
         createdAt: getTime(-100, -60 * 60 * 3),
         updatedAt: getTime(-100, -60 * 60 * 3),
         extra: {
-          birthday: '03-23',
+          birthday: '2000-01-01',
         },
       },
-      // 판매자 데이터
+      /* 2. 판매자 : 5개 */
       {
         _id: await nextSeq('user'),
-        email: 's1@market.com',
-        password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
-        name: '네오',
-        phone: '01022223333',
-        address: '서울시 강남구 삼성동 456',
+        email: 'seller1@5959.com',
+        password: 'seller1',
+        name: '김흥부',
+        phone: '01044532341',
+        address: '서울특별시 강남구 테헤란로 123',
         type: 'seller',
         loginType: 'email',
-        image: `/files/${clientId}/user-neo.png`,
+        image: `/files/${clientId}/seller-01.png`,
         createdAt: getTime(-50),
         updatedAt: getTime(-30, -60 * 60 * 3),
         extra: {
-          businessName: '오구상회',
-          representativeName: '김오구',
+          businessName: '흥부네농산물',
+          representativeName: '김흥부',
           businessNumber: '123-45-67890',
-          tel: '02-123-4567',
-          businessAddress: '부산시 해운대구 반송로 456',
+          tel: '02-891-0123',
+          businessAddress: '서울특별시 강남구 테헤란로 123',
           businessLicenseImage: '/files/201/business-license.jpg',
           telecomRegistrationImage: '/files/201/telecom-cert.jpg',
 
           // 인증 상태 정보
           certification: {
-            status: 'approved', // 'pending' | 'rejected' | 'approved'
+            status: 'approved', // 'pending' | 'rejected' | 'approved' : 승인 | 'certified' : 인증
             requestedAt: '2025-07-01T09:30:00Z',
             reviewedAt: '2025-07-03T15:45:00Z',
             reviewer: 'admin@market.com',
@@ -57,29 +62,203 @@ export const initData = async (clientId, nextSeq) => {
           },
         },
       },
-      // 일반 유저 데이터
       {
         _id: await nextSeq('user'),
-        email: 'u1@market.com',
-        password: '$2b$10$S.8GNMDyvUF0xzujPtHBu.j5gtS19.OhRmYbpJBnCHg2S83WLx1T2',
-        name: '제이지',
-        phone: '01044445555',
-        address: '서울시 강남구 논현동 222',
+        email: 'seller2@5959.com',
+        password: 'seller2',
+        name: '이놀부',
+        phone: '01034212258',
+        address: '부산광역시 해운대구 센텀중앙로 45',
+        type: 'seller',
+        loginType: 'email',
+        image: `/files/${clientId}/seller-02.png`,
+        createdAt: getTime(-50),
+        updatedAt: getTime(-30, -60 * 60 * 3),
+        extra: {
+          businessName: '놀부네농산물',
+          representativeName: '이놀부',
+          businessNumber: '123-45-67890',
+          tel: '02-456-7891',
+          businessAddress: '부산광역시 해운대구 센텀중앙로 45',
+          businessLicenseImage: '/files/201/business-license.jpg',
+          telecomRegistrationImage: '/files/201/telecom-cert.jpg',
+
+          // 인증 상태 정보
+          certification: {
+            status: 'approved', // 'pending' | 'rejected' | 'approved' : 승인 | 'certified' : 인증
+            requestedAt: '2025-07-01T09:30:00Z',
+            reviewedAt: '2025-07-03T15:45:00Z',
+            reviewer: 'admin@market.com',
+            reason: '서류 이상 없음',
+          },
+        },
+      },
+      {
+        _id: await nextSeq('user'),
+        email: 'seller3@5959.com',
+        password: 'seller3',
+        name: '송서울',
+        phone: '01082824545',
+        address: '대구광역시 수성구 동대구로 456',
+        type: 'seller',
+        loginType: 'email',
+        image: `/files/${clientId}/seller-03.png`,
+        createdAt: getTime(-50),
+        updatedAt: getTime(-30, -60 * 60 * 3),
+        extra: {
+          businessName: '서울상회',
+          representativeName: '송서울',
+          businessNumber: '123-45-67890',
+          tel: '02-987-6543',
+          businessAddress: '대구광역시 수성구 동대구로 456',
+          businessLicenseImage: '/files/201/business-license.jpg',
+          telecomRegistrationImage: '/files/201/telecom-cert.jpg',
+
+          // 인증 상태 정보
+          certification: {
+            status: 'approved', // 'pending' | 'rejected' | 'approved' : 승인 | 'certified' : 인증
+            requestedAt: '2025-07-01T09:30:00Z',
+            reviewedAt: '2025-07-03T15:45:00Z',
+            reviewer: 'admin@market.com',
+            reason: '서류 이상 없음',
+          },
+        },
+      },
+      {
+        _id: await nextSeq('user'),
+        email: 'seller4@5959.com',
+        password: 'seller4',
+        name: '박성남',
+        phone: '01028841123',
+        address: '경기도 성남시 분당구 판교역로 235',
+        type: 'seller',
+        loginType: 'email',
+        image: `/files/${clientId}/seller-04.png`,
+        createdAt: getTime(-50),
+        updatedAt: getTime(-30, -60 * 60 * 3),
+        extra: {
+          businessName: '성남농산',
+          representativeName: '박성남',
+          businessNumber: '123-45-67890',
+          tel: '02-987-6543',
+          businessAddress: '경기도 성남시 분당구 판교역로 235',
+          businessLicenseImage: '/files/201/business-license.jpg',
+          telecomRegistrationImage: '/files/201/telecom-cert.jpg',
+
+          // 인증 상태 정보
+          certification: {
+            status: 'approved', // 'pending' | 'rejected' | 'approved' : 승인 | 'certified' : 인증
+            requestedAt: '2025-07-01T09:30:00Z',
+            reviewedAt: '2025-07-03T15:45:00Z',
+            reviewer: 'admin@market.com',
+            reason: '서류 이상 없음',
+          },
+        },
+      },
+      {
+        _id: await nextSeq('user'),
+        email: 'seller5@5959.com',
+        password: 'seller5',
+        name: '최제주',
+        phone: '01089975655',
+        address: '제주특별자치도 제주시 연삼로 123-4',
+        type: 'seller',
+        loginType: 'email',
+        image: `/files/${clientId}/seller-05.png`,
+        createdAt: getTime(-50),
+        updatedAt: getTime(-30, -60 * 60 * 3),
+        extra: {
+          businessName: '제주농산물',
+          representativeName: '최제주',
+          businessNumber: '123-45-67890',
+          tel: '02-987-6543',
+          businessAddress: '제주특별자치도 제주시 연삼로 123-4',
+          businessLicenseImage: '/files/201/business-license.jpg',
+          telecomRegistrationImage: '/files/201/telecom-cert.jpg',
+
+          // 인증 상태 정보
+          certification: {
+            status: 'approved', // 'pending' | 'rejected' | 'approved' : 승인 | 'certified' : 인증
+            requestedAt: '2025-07-01T09:30:00Z',
+            reviewedAt: '2025-07-03T15:45:00Z',
+            reviewer: 'admin@market.com',
+            reason: '서류 이상 없음',
+          },
+        },
+      },
+      /* 사용자 : 3개 */
+      {
+        _id: await nextSeq('user'),
+        email: 'user1@gmail.com',
+        password: 'user1',
+        name: '정길용',
+        phone: '01012123434',
+        address: '서울 강서구 염창동 300',
         type: 'user',
         loginType: 'email',
-        image: `/files/${clientId}/user-jayg.webp`,
+        image: `/files/${clientId}/user-muzi.webp`,
         createdAt: getTime(-20, -60 * 30),
         updatedAt: getTime(-10, -60 * 60 * 12),
         extra: {
-          birthday: '11-30',
+          birthday: '1990-01-01',
+          membershipClass: 'MC01', // 예: 'MC01(씨앗)', 'MC02(새싹)', ...
+          coupons: [
+            { id: 'C001', name: '5% 할인 쿠폰', expiresAt: '2025-08-01' },
+            { id: 'C002', name: '무료배송 쿠폰', expiresAt: '2025-09-15' },
+          ],
+          address: [
+            { id: 1, name: '회사', value: '서울 종로구 청진동 246' },
+            { id: 2, name: '집', value: '서울 강서구 염창동 300' },
+          ],
+        },
+      },
+      {
+        _id: await nextSeq('user'),
+        email: 'user2@gmail.com',
+        password: 'user2',
+        name: '김데레사',
+        phone: '01056567878',
+        address: '경기 성남시 수정구 창곡동 572',
+        type: 'user',
+        loginType: 'email',
+        image: `/files/${clientId}/user-muzi.webp`,
+        createdAt: getTime(-20, -60 * 30),
+        updatedAt: getTime(-10, -60 * 60 * 12),
+        extra: {
+          birthday: '1990-07-07',
           membershipClass: 'MC02', // 예: 'MC01(씨앗)', 'MC02(새싹)', ...
           coupons: [
             { id: 'C001', name: '5% 할인 쿠폰', expiresAt: '2025-08-01' },
             { id: 'C002', name: '무료배송 쿠폰', expiresAt: '2025-09-15' },
           ],
           address: [
-            { id: 1, name: '회사', value: '서울시 강남구 논현동 222' },
-            { id: 2, name: '집', value: '서울시 강동구 성내동 234' },
+            { id: 1, name: '회사', value: '서울 종로구 청진동 246' },
+            { id: 2, name: '집', value: '경기 성남시 수정구 창곡동 572' },
+          ],
+        },
+      },
+      {
+        _id: await nextSeq('user'),
+        email: 'user3@gmail.com',
+        password: 'user3',
+        name: '정재인',
+        phone: '01091912323',
+        address: '서울 송파구 신천동 29',
+        type: 'user',
+        loginType: 'email',
+        image: `/files/${clientId}/user-muzi.webp`,
+        createdAt: getTime(-20, -60 * 30),
+        updatedAt: getTime(-10, -60 * 60 * 12),
+        extra: {
+          birthday: '2000-02-02',
+          membershipClass: 'MC03', // 예: 'MC01(씨앗)', 'MC02(새싹)', 'MC03(열매)', 'MC04(나무)'
+          coupons: [
+            { id: 'C001', name: '5% 할인 쿠폰', expiresAt: '2025-08-01' },
+            { id: 'C002', name: '무료배송 쿠폰', expiresAt: '2025-09-15' },
+          ],
+          address: [
+            { id: 1, name: '회사', value: '서울 종로구 청진동 246' },
+            { id: 2, name: '집', value: '서울 송파구 신천동 29' },
           ],
         },
       },
