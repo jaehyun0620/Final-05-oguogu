@@ -1,0 +1,88 @@
+[
+  {
+    "code": "CROP",
+    "label": "농산물",
+    "children": [
+      {
+        "code": "CROP_ROOT",
+        "label": "서류",
+        "children": [
+          { "code": "CROP_ROOT_POTATO", "label": "감자" },
+          { "code": "CROP_ROOT_SWEET_POTATO", "label": "고구마" }
+        ]
+      },
+      {
+        "code": "CROP_FRUIT",
+        "label": "과실류",
+        "children": [
+          { "code": "CROP_FRUIT_APPLE", "label": "사과" },
+          { "code": "CROP_FRUIT_PEAR", "label": "배" },
+          { "code": "CROP_FRUIT_PEACH", "label": "복숭아" },
+          { "code": "CROP_FRUIT_GRAPE", "label": "포도" },
+          { "code": "CROP_FRUIT_CITRUS", "label": "감귤" }
+        ]
+      },
+      {
+        "code": "CROP_VEGETABLE",
+        "label": "채소류",
+        "children": [
+          { "code": "CROP_VEGETABLE_PEPPER", "label": "고추" },
+          { "code": "CROP_VEGETABLE_CUCUMBER", "label": "오이" },
+          { "code": "CROP_VEGETABLE_PUMPKIN", "label": "호박" },
+          { "code": "CROP_VEGETABLE_MINI_PUMPKIN", "label": "미니 단호박" },
+          { "code": "CROP_VEGETABLE_EGGPLANT", "label": "가지" }
+        ]
+      },
+      {
+        "code": "CROP_MUSHROOM",
+        "label": "버섯류",
+        "children": [
+          { "code": "CROP_MUSHROOM_NEUTARI", "label": "느타리 버섯" },
+          { "code": "CROP_MUSHROOM_BIG_NEUTARI", "label": "큰느타리 버섯" },
+          { "code": "CROP_MUSHROOM_CHAMPIGNON", "label": "양송이 버섯" }
+        ]
+      },
+      {
+        "code": "CROP_GRAIN",
+        "label": "곡류",
+        "children": [
+          { "code": "CROP_GRAIN_RICE", "label": "쌀" },
+          { "code": "CROP_GRAIN_BEAN", "label": "콩" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "EXPERIENCE",
+    "label": "체험",
+    "children": []
+  },
+  {
+    "code": "GARDEN",
+    "label": "텃밭",
+    "children": []
+  },
+
+  { "code": "FEATURE_NEW", "label": "신상품" },
+  { "code": "FEATURE_BEST", "label": "인기상품" },
+  { "code": "FEATURE_SEASONAL", "label": "제철상품" },
+  { "code": "FEATURE_SALE", "label": "할인상품" },
+  { "code": "FEATURE_RECOMMENDED", "label": "추천상품" },
+  { "code": "FEATURE_SUBSCRIBE", "label": "구독상품" },
+  { "code": "FEATURE_LIMITED", "label": "한정수량" },
+
+  { "code": "STATUS_ONSALE", "label": "판매중" },
+  { "code": "STATUS_SOLDOUT", "label": "품절" },
+  { "code": "STATUS_HIDDEN", "label": "비노출" },
+  { "code": "STATUS_STOP", "label": "판매중지" },
+
+  { "code": "ORDER_PENDING", "label": "결제대기" },
+  { "code": "ORDER_PAID", "label": "결제완료" },
+  { "code": "ORDER_SHIPPED", "label": "배송중" },
+  { "code": "ORDER_COMPLETED", "label": "배송완료" },
+  { "code": "ORDER_CANCELLED", "label": "취소됨" },
+
+  { "code": "SHIP_STANDARD", "label": "일반택배" },
+  { "code": "SHIP_FREE", "label": "무료배송" },
+  { "code": "SHIP_DIRECT", "label": "직접배송 (산지직송)" }
+]

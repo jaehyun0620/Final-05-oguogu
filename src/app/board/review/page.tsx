@@ -1,0 +1,3 @@
+export default function Review() {
+  return <h1>상품 후기 페이지</h1>;
+}

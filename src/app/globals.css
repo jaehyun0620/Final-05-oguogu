@@ -1,2 +1,54 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+@font-face {
+  font-family: 'BM JUA';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src:
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.otf') format('opentype'),
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/BMJUA/BMJUA.ttf') format('truetype');
+}
+
+@theme {
+  /* 폰트 */
+  --font-*: initial;
+  --font-baedal-Jua: 'BM JUA', sans-serif;
+
+  /* 커스텀 색상 */
+  --color-oguogu-main: #489f51;
+  --color-oguogu-main-dark: #2e6337;
+  --color-oguogu-main-light: #effcf2;
+
+  --color-oguogu-white: #fafafa;
+  --color-oguogu-gray-1: #e4e4e4;
+  --color-oguogu-gray-2: #c8c8c8;
+  --color-oguogu-gray-3: #969696;
+  --color-oguogu-gray-4: #6a6a6a;
+
+  --color-oguogu-black: #121212;
+  --color-oguogu-yellow: #ffcc00;
+  --color-ogugu-blue-light: #3c9afa;
+
+  /* 커스텀 중단점 */
+  --breakpoint-*: initial;
+  --breakpoint-mobile-min: 20rem;
+  --breakpoint-mobile-max: 48rem;
+}
+
+@layer utilities {
+  body {
+    @apply bg-oguogu-white font-baedal-Jua text-oguogu-black;
+  }
+}
+
+/* 스크롤 바 숨기기 */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

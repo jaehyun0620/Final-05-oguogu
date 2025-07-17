@@ -1,0 +1,26 @@
+import { ProductLinkType } from '@/components/elements/ProductLink/ProductLink.type';
+import Link from 'next/link';
+
+export default function ProductLinkItem({ keywordParams, typeParams, linkTitle = '전체 상품' }: ProductLinkType) {
+  console.log(keywordParams, typeParams);
+
+  return (
+    <div className="flex justify-center border-b-1 border-b-oguogu-gray-2 pt-2 pb-4">
+      <Link href={`/search`} className="flex items-center gap-2 text-xs">
+        <span className="content-center">
+          <span className="text-oguogu-main">{linkTitle}</span> 보러 가기
+        </span>
+        <svg
+          width="5"
+          height="11"
+          viewBox="0 0 10 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="rotate-180"
+        >
+          <path d="M9 0.5L1 9.22973L9 17.5" stroke="black" />
+        </svg>
+      </Link>
+    </div>
+  );
+}
