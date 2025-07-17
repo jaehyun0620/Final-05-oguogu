@@ -52,7 +52,9 @@ export default function Login() {
             </fieldset>
 
             <div className="flex flex-row justify-between mt-[10px] ">
-              <CheckButton children="자동 로그인" size={14} gap={2} />
+              <CheckButton size={14} gap={2}>
+                자동 로그인
+              </CheckButton>
               <div className="flex flex-row gap-[12px] my-[10px] text-[8px] text-oguogu-gray-3">
                 <Link href={`/`}>아이디 찾기</Link>
                 <Link href={`/`}>비밀번호 찾기</Link>

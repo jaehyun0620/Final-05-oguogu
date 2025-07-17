@@ -83,12 +83,7 @@ export default function BuyBoxOption({ name, price, maxQuantity = 1, type }: Buy
           <div className="flex gap-3 max-w-full overflow-auto hide-scrollbar">
             {/* 선택 가능 & 선택됨 */}
             {data.map(item => {
-              const {
-                _id,
-                quantity,
-                buyQuantity,
-                extra: { departureDate },
-              } = item;
+              const { _id, quantity, buyQuantity } = item;
 
               const formattedDate = format(item.extra.departureDate, 'M월 d일 (eee)', { locale: ko });
               const formattedTime = format(item.extra.departureDate, 'HH:mm');

@@ -40,7 +40,9 @@ export function QnaSortBar() {
     <div className="flex justify-between items-center w-[320px] h-[48px] p-[16px]">
       <span>총 15,642개</span>
       <div>
-        <CheckButton children="내가 작성한 글" size={14} gap={2} />
+        <CheckButton size={14} gap={2}>
+          내가 작성한 글
+        </CheckButton>
       </div>
     </div>
   );
