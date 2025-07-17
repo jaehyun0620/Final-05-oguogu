@@ -28,6 +28,13 @@ export default function Title({
         <CropItem _id={1} name="쫀득쫀득 대학 미백 찰옥수수 30개입" originPrice="11800" />
       </div>
     );
+  } else if (type === 'basic') {
+    return (
+      <div>
+        <p className="text-[20px] text-oguogu-black">{title}</p>
+        <p className={`text-[14px] text-oguogu-gray-4`}>{content}</p>
+      </div>
+    );
   } else if (type === 'experience') {
     itemType = (
       <div className="flex gap-3 overflow-x-scroll cursor-grab select-none no-scrollbar">
