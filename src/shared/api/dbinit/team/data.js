@@ -264,19 +264,36 @@ export const initData = async (clientId, nextSeq) => {
       },
     ],
 
-    // 상품
+    /**
+     ** 상품 관리
+     * 1. 일반 상품 => extra { productType: 'crop' }
+     * - seller_id: 2 (김흥부) * 5
+     * - seller_id: 3 (이놀부) * 5
+     * - seller_id: 4 (송서울) * 5
+     * - seller_id: 5 (박성남) * 5
+     * - seller_id: 6 (최제주) * 5
+
+     * 2. 체험 상품 => extra { productType: 'experience' }
+     * - seller_id: 2 (김흥부) * 2
+     * - seller_id: 3 (이놀부) * 2
+
+     * 3. 텃밭 상품 => extra { productType: 'gardening' }
+     * - seller_id: 4 (송서울) * 3
+     * - seller_id: 5 (박성남) * 3
+     * - seller_id: 6 (최제주) * 3
+     * */
     product: [
-      // 일반 상품 데이터
+      /* 1. 농산물 상품 */
       {
         _id: await nextSeq('product'),
         seller_id: 2,
-        price: 22800,
-        shippingFees: 0,
+        price: 29900,
+        shippingFees: 3000,
         show: true,
         active: true,
-        name: '딸기 5kg',
-        quantity: 320,
-        buyQuantity: 310,
+        name: "남다른 쫀득함! 신품종 전남 해남 25년 '햇' 오색촬옥수수",
+        quantity: 1000,
+        buyQuantity: 500,
         mainImages: [
           {
             path: `/files/${clientId}/sample-dog.jpg`,
@@ -291,20 +308,28 @@ export const initData = async (clientId, nextSeq) => {
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),
         extra: {
-          productType: 'basic',
-          category: ['AG01', 'AG0101'],
+          productType: 'crop',
+          category: ['옥수수', '찰옥수수'],
           origin: '국산', // 원산지
-          productionPlace: '강원도 평창군', // 생산지
-          composition: '감자 5kg / 특상', // 상품 구성
-          deliveryInfo: '택배 / 평일 1~2일 소요',
+          productionPlace: '전라남도 해남군', // 생산지
+          composition: '10개', // 상품 구성
+          deliveryInfo: '평일 1~2일 소요',
           detailInfo: '청정지역 평창에서 자란 특상 감자입니다.',
           likeCount: 124,
-          isNew: true,
-          isBest: false,
           sort: 3,
+
+          // 할인율
+          dcRate: 40,
+
+          // 뱃지용
+          isNew: true, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭 전용)
         },
       },
-      // 여행 상품 데이터
+      /* 2. 체험 상품 */
       {
         _id: await nextSeq('product'),
         seller_id: 2,
@@ -329,7 +354,7 @@ export const initData = async (clientId, nextSeq) => {
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),
         extra: {
-          productType: 'travel',
+          productType: 'experience',
           category: ['TR01', 'TR0101'],
           region: '강원도 원주',
           departureDate: '2025-08-01',
@@ -352,10 +377,18 @@ export const initData = async (clientId, nextSeq) => {
             name: '트래블코리아',
             license: 'T-2024-1234',
           },
-          isPopular: true,
+
+          // 할인율
+          dcRate: 40,
+
+          // 뱃지용
+          isNew: true, // 신상품
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭)
         },
       },
-      // 텃밭 서비스 상품 데이터(임시)
+      /* 3. 텃밭 상품 */
       {
         _id: await nextSeq('product'),
         seller_id: 2,
@@ -388,6 +421,17 @@ export const initData = async (clientId, nextSeq) => {
           vegetables: ['방울토마토', '고추', '상추'],
           farmLocation: '전북 남원시 금동길 123',
           experienceInfo: '매주 작물 성장 사진 제공',
+
+          // 할인율
+          dcRate: 40,
+
+          // 뱃지용
+          isNew: true, // 신상품
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭)
+
+          // 텃밭 구독 사용자에게 보여지는 내용
           period: [
             {
               date: '5월 초',
