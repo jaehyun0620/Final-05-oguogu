@@ -78,7 +78,7 @@ export const initData = async (clientId, nextSeq) => {
             { id: 'C002', name: '무료배송 쿠폰', expiresAt: '2025-09-15' },
           ],
           address: [
-            { id: 1, name: '회사', value: '서울시 강동구 천호동 123' },
+            { id: 1, name: '회사', value: '서울시 강남구 논현동 222' },
             { id: 2, name: '집', value: '서울시 강동구 성내동 234' },
           ],
         },
@@ -185,8 +185,8 @@ export const initData = async (clientId, nextSeq) => {
         show: true,
         active: true,
         name: '김이장님 텃밭',
-        quantity: 320,
-        buyQuantity: 310,
+        quantity: 20,
+        buyQuantity: 5,
         mainImages: [
           {
             path: `/files/${clientId}/sample-dog.jpg`,
@@ -201,13 +201,31 @@ export const initData = async (clientId, nextSeq) => {
         createdAt: getTime(-41, -60 * 60 * 2),
         updatedAt: getTime(-40, -60 * 15),
         extra: {
-          productType: 'subscription',
+          productType: 'gardening',
           totalPlots: 8,
           farmName: '김농부의 텃밭',
-          harvestExpectedDate: '2025-10-15',
+          deadline: '2025년 4월 15일',
+          harvestExpectedDate: '2025년 7월 중',
           vegetables: ['방울토마토', '고추', '상추'],
           farmLocation: '전북 남원시 금동길 123',
           experienceInfo: '매주 작물 성장 사진 제공',
+          period: [
+            {
+              date: '5월 초',
+              image: 'src',
+              content: '싹이 자랐습니다.',
+            },
+            {
+              date: '6월 초',
+              image: 'src',
+              content: '열매가 생겼습니다.',
+            },
+            {
+              date: '7월 초',
+              image: 'src',
+              content: '재배를 했습니다.',
+            },
+          ],
 
           plots: [
             {
@@ -571,30 +589,6 @@ export const initData = async (clientId, nextSeq) => {
             like: 5,
             createdAt: getTime(-2, -60 * 60 * 20),
             updatedAt: getTime(-2, -60 * 60 * 2),
-          },
-          {
-            _id: await nextSeq('reply'),
-            user: {
-              _id: 4,
-              name: '제이지',
-              image: 'user-jayg.webp',
-            },
-            content: '어디있나 모르겠어요.',
-            like: 7,
-            createdAt: getTime(-2, -60 * 60 * 10),
-            updatedAt: getTime(-2, -60 * 60 * 1),
-          },
-          {
-            _id: await nextSeq('reply'),
-            user: {
-              _id: 2,
-              name: '네오',
-              image: 'user-neo.png',
-            },
-            content: '높이 60cm 입니다.',
-            like: 3,
-            createdAt: getTime(-2, -60 * 60 * 9),
-            updatedAt: getTime(-1, -60 * 60 * 20),
           },
         ],
         createdAt: getTime(-3, -60 * 60 * 2),
