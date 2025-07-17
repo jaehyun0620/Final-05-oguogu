@@ -10,12 +10,14 @@ export const initData = async (clientId, nextSeq) => {
      ** 회원 관리
      * 1. 관리자 => type: 'admin'
      * - 관리자
+     
      * 2. 판매자 => type: 'seller'
      * - 흥부네농산물
      * - 놀부네농산물
      * - 서울상회
-     * - 성남농산
+     * - 국제농업
      * - 제주농산물
+     
      * 3. 사용자 => type: 'user'
      * - 정길용
      * - 김데레사
@@ -172,7 +174,7 @@ export const initData = async (clientId, nextSeq) => {
         updatedAt: getTime(-30, -60 * 60 * 3),
         extra: {
           // 상호명
-          businessName: '성남농산',
+          businessName: '국제농업',
 
           // 대표자명
           representativeName: '박성남',
@@ -318,23 +320,24 @@ export const initData = async (clientId, nextSeq) => {
     /**
      ** 상품 관리
      * 1. 일반 상품 => extra { productType: 'crop' }
-     * [ ] seller_id: 2 * 5
-     * [ ] seller_id: 3 * 5
-     * [ ] seller_id: 4 * 5
-     * [ ] seller_id: 5 * 5
-     * [ ] seller_id: 6 * 5
+     * [x] seller_id: 2 * 5개
+     * [x] seller_id: 3 * 5개
+     * [x] seller_id: 4 * 5개
+     * [x] seller_id: 5 * 5개
+     * [ ] seller_id: 6 * 5개
 
      * 2. 체험 상품 => extra { productType: 'experience' }
-     * [ ] seller_id: 2 * 2
-     * [ ] seller_id: 3 * 2
+     * [ ] seller_id: 2 * 2개
+     * [ ] seller_id: 3 * 2개
 
      * 3. 텃밭 상품 => extra { productType: 'gardening' }
-     * [ ] seller_id: 4 * 3
-     * [ ] seller_id: 5 * 3
-     * [ ] seller_id: 6 * 3
+     * [ ] seller_id: 4 * 3개
+     * [ ] seller_id: 5 * 3개
+     * [ ] seller_id: 6 * 3개
      * */
     product: [
       /* 1. 농산물 상품 */
+      // seller_id: 2
       {
         _id: await nextSeq('product'),
         seller_id: 2,
@@ -354,7 +357,137 @@ export const initData = async (clientId, nextSeq) => {
             originalname: '상품이미지-1.jpg',
           },
           {
-            path: `/files/${clientId}/seller-2-crop1-2.jpg`,
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '전라남도 해남군',
+
+          // 상품 구성
+          composition: '30개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 12499,
+
+          // 할인율
+          dcRate: 40,
+
+          // 최대 구매 가능 수량
+          productCnt: 10,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        name: '쫀득함이 남다른 의령 햇 미백 찰옥수수',
+        content: '쫀득함과 구수한 맛이 일품인 건강한 미백 찰옥수수',
+        price: 18500,
+        shippingFees: 3000,
+        quantity: 1000,
+        buyQuantity: 0,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '경상남도 의령',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 2155,
+
+          // 할인율
+          dcRate: 41,
+
+          // 최대 구매 가능 수량
+          productCnt: 10,
+
+          // 뱃지용
+          isNew: true, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        name: '은은하게 퍼지는 고소함과 달큰함이 좋은 유기농 냉동 찰옥수수',
+        content: '이른 봄 씨앗을 파종해 직접 재배한 100% 국내산 냉동 찐 찰옥수수',
+        price: 41900,
+        shippingFees: 0,
+        quantity: 1000,
+        buyQuantity: 100,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
             name: 'image-2.jpg',
             originalname: '상품이미지-2.jpg',
           },
@@ -375,13 +508,81 @@ export const initData = async (clientId, nextSeq) => {
           originPlace: '국산',
 
           // 생산지
-          productionPlace: '전라남도 해남군',
+          productionPlace: '충청북도 충주',
 
           // 상품 구성
-          composition: '10개',
+          composition: '18개입 * 6개',
+
+          // 배송 관련 추가 정보
           deliveryInfo: '평일 1~2일 소요',
-          likeCount: 124,
-          sort: 3,
+
+          // 찜 수
+          likeCount: 854,
+
+          // 할인율
+          dcRate: 26,
+
+          // 최대 구매 가능 수량
+          productCnt: 4,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: false, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        name: "남다른 쫀득함! 신품종 전남 해남 25년 '햇' 오색촬옥수수",
+        content: '재배 농가가 많지 않은 귀한 품종',
+        price: 29900,
+        shippingFees: 0,
+        quantity: 300,
+        buyQuantity: 250,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '전라남도 해남',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 1021,
 
           // 할인율
           dcRate: 40,
@@ -394,9 +595,1053 @@ export const initData = async (clientId, nextSeq) => {
           isInSeason: true, // 제철 상품 (농산물 전용)
           isBest: false, // 인기 상품
           isLowStock: false, // 품절 임박 상품
-          isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭 전용)
+          isSold: false, // 품절 상품
         },
       },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 2,
+        name: '유기농 홍천 찰옥수수 3입',
+        content: '간편하게 누리는 찰진 고소함',
+        price: 10900,
+        shippingFees: 3000,
+        quantity: 100,
+        buyQuantity: 8,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '강원도 홍천',
+
+          // 상품 구성
+          composition: '3개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 34,
+
+          // 할인율
+          dcRate: 8,
+
+          // 최대 구매 가능 수량
+          productCnt: 100,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      // seller_id: 3
+      {
+        _id: await nextSeq('product'),
+        seller_id: 3,
+        name: '괴산 대학🌽찰 옥수수🌽30개✨달콤하고 쫀득함이 일품✨',
+        content: '달콤하고 쫀득한 여름 대표 간식',
+        price: 29800,
+        shippingFees: 0,
+        quantity: 300,
+        buyQuantity: 20,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '충청북도 괴산',
+
+          // 상품 구성
+          composition: '30개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 4,
+
+          // 할인율
+          dcRate: 0,
+
+          // 최대 구매 가능 수량
+          productCnt: 100,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 3,
+        name: '❗특대 사이즈 찰옥수수 10개 ❗꿀맛 보장!! 부담없는 가격에 득템!!',
+        content: '지금이 제일 맛있는 특대 사이즈 찰옥수수',
+        price: 11900,
+        shippingFees: 3000,
+        quantity: 200,
+        buyQuantity: 3,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '전라남도 남원',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 0,
+
+          // 할인율
+          dcRate: 0,
+
+          // 최대 구매 가능 수량
+          productCnt: 100,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 3,
+        name: '미백 찰옥수수 10송이 11-15cm 내외',
+        content: '고랭지에서 재배해 더 쫀득한 미백 찰옥수수',
+        price: 11900,
+        shippingFees: 0,
+        quantity: 300,
+        buyQuantity: 90,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '강원도 홍천',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 0,
+
+          // 할인율
+          dcRate: 0,
+
+          // 최대 구매 가능 수량
+          productCnt: 100,
+
+          // 뱃지용
+          isNew: true, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 3,
+        name: '쫀득 구수한~흑찰 옥수수 10개 20개 30개',
+        content: '칼슘 흑찰옥수수! 우리 아이들이 좋아하는 흑찰옥수수',
+        price: 19900,
+        shippingFees: 0,
+        quantity: 500,
+        buyQuantity: 480,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '강원도 홍천',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 4532,
+
+          // 할인율
+          dcRate: 35,
+
+          // 최대 구매 가능 수량
+          productCnt: 10,
+
+          // 뱃지용
+          isNew: true, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: true, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 3,
+        name: '경남 고성 찰옥수수 10개 미백찰 미흑찰 제철 생 옥수수',
+        content: '고성바다의 시원한 바람결로 알알이 영근 찰옥수수를 만나보세요',
+        price: 28000,
+        shippingFees: 0,
+        quantity: 1000,
+        buyQuantity: 664,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '경상남도 고성',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 8775,
+
+          // 할인율
+          dcRate: 55,
+
+          // 최대 구매 가능 수량
+          productCnt: 10,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      // seller_id: 4
+      {
+        _id: await nextSeq('product'),
+        seller_id: 4,
+        name: '찰옥수수 더 쫀득하고 연한 강원도 햇 옥수수',
+        content: '충분한 퇴비, 두둑 간격을 넓혀 품질 향상',
+        price: 15000,
+        shippingFees: 3000,
+        quantity: 9999,
+        buyQuantity: 7500,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '강원도 영월',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 18664,
+
+          // 할인율
+          dcRate: 7,
+
+          // 최대 구매 가능 수량
+          productCnt: 100,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 4,
+        name: '특품 사이즈 찰옥수수 햇 옥수수 생 제철',
+        content: '일반옥수수보다 가늘지만 알 하나 사이즈가 큰 튼실한 옥수수',
+        price: 16000,
+        shippingFees: 0,
+        quantity: 5000,
+        buyQuantity: 2742,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '충청북도 괴산',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 9475,
+
+          // 할인율
+          dcRate: 31,
+
+          // 최대 구매 가능 수량
+          productCnt: 100,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 4,
+        name: '초당옥수수 특품사이즈 옥수수 당도보장',
+        content: '16cm 이상 특품만 선별!',
+        price: 26000,
+        shippingFees: 0,
+        quantity: 1000,
+        buyQuantity: 884,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '제주도 서귀포',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 2712,
+
+          // 할인율
+          dcRate: 27,
+
+          // 최대 구매 가능 수량
+          productCnt: 100,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 4,
+        name: '갓 삶아 냉동한 찰옥수수 20개 홍찰 백찰 알록이 황찰 반반 절단 진공 옥수수',
+        content: '올해 수확 햇옥수수 특품 선별 가공',
+        price: 20000,
+        shippingFees: 0,
+        quantity: 499,
+        buyQuantity: 120,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '중국',
+
+          // 생산지
+          productionPlace: '중국',
+
+          // 상품 구성
+          composition: '20개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 799,
+
+          // 할인율
+          dcRate: 32,
+
+          // 최대 구매 가능 수량
+          productCnt: 999,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 4,
+        name: '2025년 잘영근 햇 괴산대학 찰옥수수',
+        content: '찰지도 단맛이 강한 연농 1호 찰옥수수',
+        price: 25900,
+        shippingFees: 0,
+        quantity: 5000,
+        buyQuantity: 4199,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '충청북도 괴산',
+
+          // 상품 구성
+          composition: '20개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 35112,
+
+          // 할인율
+          dcRate: 7,
+
+          // 최대 구매 가능 수량
+          productCnt: 50,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      // seller_id: 5
+      {
+        _id: await nextSeq('product'),
+        seller_id: 5,
+        name: '쫀득톡톡 괴산 대학찰옥수수 30개입 대학찰 미백찰',
+        content: '한 대씩 키운 품질 좋은 대학찰옥수수',
+        price: 27000,
+        shippingFees: 0,
+        quantity: 2000,
+        buyQuantity: 1200,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '충청북도 괴산',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 1800,
+
+          // 할인율
+          dcRate: 5,
+
+          // 최대 구매 가능 수량
+          productCnt: 10,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 5,
+        name: '강원도 찰옥수수 미백 흑 찰옥수수 홍천 햇 생옥수수 ',
+        content: '인증 받은 비료만 사용! 건강하고 싱싱한 옥수수',
+        price: 7900,
+        shippingFees: 3000,
+        quantity: 1000,
+        buyQuantity: 40,
+        show: true,
+        active: true,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '강원도 홍천',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 84,
+
+          // 할인율
+          dcRate: 0,
+
+          // 최대 구매 가능 수량
+          productCnt: 10,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 5,
+        name: '초당옥수수 괴산대학찰옥수수 10개',
+        content: '진~짜 쫀득 탱글한 대학찰옥수수',
+        price: 30000,
+        shippingFees: 0,
+        quantity: 1500,
+        buyQuantity: 1500,
+        show: false,
+        active: false,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '충청북도 괴산',
+
+          // 상품 구성
+          composition: '10개입 * 2개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 3122,
+
+          // 할인율
+          dcRate: 43,
+
+          // 최대 구매 가능 수량
+          productCnt: 5,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: true, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 5,
+        name: '강원도 정선 흑찰 생옥수수 냉동 찐 삶은',
+        content: '700고지 구름밭에서 자란 달콤한 흑찰옥수수',
+        price: 38000,
+        shippingFees: 0,
+        quantity: 1000,
+        buyQuantity: 899,
+        show: false,
+        active: false,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '강원도 정선',
+
+          // 상품 구성
+          composition: '20개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 1992,
+
+          // 할인율
+          dcRate: 29,
+
+          // 최대 구매 가능 수량
+          productCnt: 10,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: true, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      {
+        _id: await nextSeq('product'),
+        seller_id: 5,
+        name: '25년 곡성 햇 생 흑찰 옥수수 특품',
+        content: '700고지 구름밭에서 자란 달콤한 흑찰옥수수',
+        price: 16900,
+        shippingFees: 0,
+        quantity: 1500,
+        buyQuantity: 452,
+        show: false,
+        active: false,
+        mainImages: [
+          {
+            // seller-${seller_id}-${productType}${_id}-${numbering}
+            path: `/files/${clientId}/seller-2-crop1-1.jpg`,
+            name: 'image-1.jpg',
+            originalname: '상품이미지-1.jpg',
+          },
+          {
+            path: `/files/${clientId}/seller-2-crop2-2.jpg`,
+            name: 'image-2.jpg',
+            originalname: '상품이미지-2.jpg',
+          },
+        ],
+        createdAt: getTime(-41, -60 * 60 * 2),
+        updatedAt: getTime(-40, -60 * 15),
+        extra: {
+          // 상품 타입 : 'crop' | 'experience' | 'gardening'
+          productType: 'crop',
+
+          // 2차 카테고리 : 'veggie', 'fruit', 'grain', 'mushroom'
+          category: 'veggie',
+
+          // 3차 카테고리
+          filter: ['옥수수'],
+
+          // 원산지
+          originPlace: '국산',
+
+          // 생산지
+          productionPlace: '전라남도 곡성',
+
+          // 상품 구성
+          composition: '10개입 * 1개',
+
+          // 배송 관련 추가 정보
+          deliveryInfo: '평일 1~2일 소요',
+
+          // 찜 수
+          likeCount: 1200,
+
+          // 할인율
+          dcRate: 13,
+
+          // 최대 구매 가능 수량
+          productCnt: 99,
+
+          // 뱃지용
+          isNew: false, // 신상품
+          isInSeason: true, // 제철 상품 (농산물 전용)
+          isBest: false, // 인기 상품
+          isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
+        },
+      },
+      // seller_id: 6
 
       /* 2. 체험 상품 */
       {
@@ -412,12 +1657,12 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         mainImages: [
           {
-            path: `/files/${clientId}/seller-2-2-1.jpg`,
+            path: `/files/${clientId}/seller-2-exp2-1.jpg`,
             name: 'image-1.jpg',
             originalname: '상품이미지-1.jpg',
           },
           {
-            path: `/files/${clientId}/seller-2-2-2.jpg`,
+            path: `/files/${clientId}/seller-2-exp2-2.jpg`,
             name: 'image-2.jpg',
             originalname: '상품이미지-2.jpg',
           },
@@ -426,7 +1671,7 @@ export const initData = async (clientId, nextSeq) => {
         updatedAt: getTime(-40, -60 * 15),
         extra: {
           // 상품 타입 : 'crop' | 'experience' | 'gardening'
-          type: 'experience',
+          productType: 'experience',
 
           // 2차 카테고리
           category: [],
@@ -480,6 +1725,7 @@ export const initData = async (clientId, nextSeq) => {
           isNew: true, // 신상품
           isBest: false, // 인기 상품
           isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
           isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭)
         },
       },
@@ -498,12 +1744,12 @@ export const initData = async (clientId, nextSeq) => {
         active: true,
         mainImages: [
           {
-            path: `/files/${clientId}/seller-2-3-1.jpg`,
+            path: `/files/${clientId}/seller-2-gdn3-1.jpg`,
             name: 'image-1.jpg',
             originalname: '상품이미지-1.jpg',
           },
           {
-            path: `/files/${clientId}/seller-2-3-2.jpg`,
+            path: `/files/${clientId}/seller-2-gdn3-2.jpg`,
             name: 'image-2.jpg',
             originalname: '상품이미지-2.jpg',
           },
@@ -512,7 +1758,7 @@ export const initData = async (clientId, nextSeq) => {
         updatedAt: getTime(-40, -60 * 15),
         extra: {
           // 상품 타입 : 'crop' | 'experience' | 'gardening'
-          type: 'gardening',
+          productType: 'gardening',
 
           // 2차 카테고리
           category: [],
@@ -539,6 +1785,7 @@ export const initData = async (clientId, nextSeq) => {
           isNew: true, // 신상품
           isBest: false, // 인기 상품
           isLowStock: false, // 품절 임박 상품
+          isSold: false, // 품절 상품
           isClosingSoon: false, // 판매 종료 임박 상품 (체험, 텃밭)
 
           // 텃밭 구독자 제공 정보 (주기별 상품 상태 메시지)
