@@ -1,5 +1,5 @@
 import BuyBox from '@/components/elements/BuyBox/BuyBox';
-import Title from '@/components/elements/CommonTitleItem/Title';
+// import Title from '@/components/elements/CommonTitleItem/Title';
 import { PathCaseOne } from '@/components/elements/Path/Path';
 import ProductLinkItem from '@/components/elements/ProductLink/ProductLink';
 import Image from 'next/image';
@@ -23,7 +23,7 @@ export default function ProductDetail() {
       <section className="px-4 pt-4">
         <section className="flex flex-col gap-4">
           <PathCaseOne title="옥수수" />
-          <Title title="쫀득쫀득 대학 미백 찰옥수수 30개입" content="올해 수확! 알갱이가 톡톡 터지는 맛있는 찰옥수수" />
+          {/* <Title title="쫀득쫀득 대학 미백 찰옥수수 30개입" content="올해 수확! 알갱이가 톡톡 터지는 맛있는 찰옥수수" /> */}
           {/* 가격 정보 */}
           <div>
             <s className="text-[16px] text-oguogu-gray-2">20,000원</s>
