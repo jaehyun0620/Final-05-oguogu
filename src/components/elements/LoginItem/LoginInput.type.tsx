@@ -10,5 +10,4 @@ export interface LoginInputProps {
   onChange: (value: string) => void;
   options?: Option[]; //이메일 select용
   id?: string;
-  more?: string;
 }

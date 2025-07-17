@@ -1,7 +1,7 @@
 import { LoginInputProps } from '@/components/elements/LoginItem/LoginInput.type';
 import { useState } from 'react';
 
-export default function LoginInput({ type, value, placeholder = '', onChange, options, id, more }: LoginInputProps) {
+export default function LoginInput({ type, value, placeholder = '', onChange, options, id }: LoginInputProps) {
   const [emailId, setEmailId] = useState('');
   const [emailDomain, setEmailDomain] = useState('');
 
@@ -129,7 +129,7 @@ export default function LoginInput({ type, value, placeholder = '', onChange, op
         placeholder={placeholder}
         value={String(value)}
         onChange={e => onChange(e.target.value)}
-        className={`w-[288px] h-[36px] font-normal text-[12px] pl-2 py-3 border-b border-oguogu-gray-2 placeholder-oguogu-gray-2 ${more}`}
+        className={`w-[288px] h-[36px] font-normal text-[12px] pl-2 py-3 border-b border-oguogu-gray-2 placeholder-oguogu-gray-2`}
       />
     </>
   );
