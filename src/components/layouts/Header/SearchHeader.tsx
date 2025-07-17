@@ -22,7 +22,7 @@ export default function SearchHeader({ cartItemCount = 0 }: SearchHeaderProps) {
       <header className="w-full h-12 sticky top-0 z-50 bg-oguogu-white flex justify-between items-center p-3">
         {/* 검색 + 장바구니 */}
         <div className="flex gap-1 items-center w-full">
-          <button onClick={handleGoBack}>
+          <button type="button" onClick={handleGoBack}>
             <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 0.5L1 9.22973L9 17.5" stroke="black" />
             </svg>
