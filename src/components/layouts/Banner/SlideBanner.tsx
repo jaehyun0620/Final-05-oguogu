@@ -4,15 +4,15 @@ import SlideBannerItem from '@/components/elements/BannerItem/SlideBannerItem';
 import { SlideBannerItemType } from '@/components/elements/BannerItem/SlideBannerItem.type';
 import { useEffect, useState } from 'react';
 
-  // CHECKLIST
-  // [x] 1차 마크업
-  // [x] 슬라이드 무한 루프
-  // [x] 버튼 눌렀을 때 해당 슬라이드로 이동 및 정지 기능
-  // [ ] 드래그와 스크롤 기능 
-  // [ ] 슬라이드 될 때 마다 리렌더링이 되고 있음 -> 메모이제이션 필요하면 적용
+// CHECKLIST
+// [x] 1차 마크업
+// [x] 슬라이드 무한 루프
+// [x] 버튼 눌렀을 때 해당 슬라이드로 이동 및 정지 기능
+// [ ] 드래그와 스크롤 기능
+// [ ] 슬라이드 될 때 마다 리렌더링이 되고 있음 -> 메모이제이션 필요하면 적용
 
-  // 현재 UI 수정시 적용이 되지 않는 버그가 있음 체크 해보기
-  // -> 추후 리팩토링 필요 .. 전체를 고쳐야할지도
+// 현재 UI 수정시 적용이 되지 않는 버그가 있음 체크 해보기
+// -> 추후 리팩토링 필요 .. 전체를 고쳐야할지도
 
 export default function SlideBanner() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -31,7 +31,7 @@ export default function SlideBanner() {
   useEffect(() => {
     if (!autoSlide) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % bannerItems.length);
+      setCurrentIndex(prev => (prev + 1) % bannerItems.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [autoSlide, bannerItems.length]);
@@ -49,8 +49,8 @@ export default function SlideBanner() {
   };
 
   return (
-    <section className="flex flex-col items-center gap-2 overflow-hidden w-full">
-      <div className="relative w-[320px] h-[280px] overflow-hidden">
+    <div className="flex flex-col items-center gap-3 overflow-hidden pt-2">
+      <div className="relative w-full h-[280px] overflow-hidden">
         <ul className="flex items-center justify-center transition-transform duration-500 gap-[10px]">
           {/* 이전 슬라이드 */}
           <li className="w-[210px] shrink-0">
@@ -94,6 +94,6 @@ export default function SlideBanner() {
           />
         ))}
       </div>
-    </section>
+    </div>
   );
 }

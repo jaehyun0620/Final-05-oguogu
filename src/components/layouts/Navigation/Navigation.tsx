@@ -15,7 +15,7 @@ export default function Navigation() {
       <nav
         ref={scrollRef}
         {...events}
-        className="max-w-[320px] h-[48px] overflow-x-scroll cursor-grab px-[10px] py-[11px] text-[14px] select-none no-scrollbar mx-auto"
+        className="h-[48px] overflow-x-scroll cursor-grab px-[10px] py-[11px] text-[14px] select-none no-scrollbar"
       >
         <ul className="flex flex-row gap-4 w-max">
           <NavigationItem type="/" item="홈" isSelected />

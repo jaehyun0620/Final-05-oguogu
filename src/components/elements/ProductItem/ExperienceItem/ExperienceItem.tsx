@@ -5,23 +5,26 @@ import Link from 'next/link';
 
 export default function ExperienceItem() {
   return (
-    <div className="flex flex-col gap-4 w-[288px] h-[332px] ">
+    <div className="min-w-[288px] flex flex-col gap-4">
       {/* 상품 이미지 및 뱃지 영역 */}
       <Link href={`/product/experience/1`} className="flex">
         {/* 대표 이미지 */}
         {/*이미지를 하드코딩 해둔 상태 추후 동적으로 관리해야 함*/}
-        <Image
-          src={`/images/experience/experience-001.png`}
-          alt=""
-          width={288}
-          height={186.67}
-          className="rounded-[8px]"
-        />
-        {/* 뱃지 (제철 상품, 인기 상품 등) */}
-        <div className="absolute left-2">
-          <Badge bgColor="bg-ogugu-blue-light" textColor="text-oguogu-white" content="마감 D-5" />
+        <div className="relative">
+          <Image
+            src={`/images/experience/experience-001.png`}
+            alt=""
+            width={288}
+            height={186.67}
+            className="rounded-[8px]"
+          />
+          {/* 뱃지 (제철 상품, 인기 상품 등) */}
+          <div className="absolute top-0.5 left-1.5">
+            <Badge bgColor="bg-ogugu-blue-light" textColor="text-oguogu-white" content="마감 D-5" />
+          </div>
         </div>
       </Link>
+
       {/* 텍스트 정보 영역 */}
       <div className="flex flex-col gap-1">
         {/* 판매자 정보 */}
@@ -36,13 +39,14 @@ export default function ExperienceItem() {
         {/* 추가 상품 내용 설명 */}
         <p className="text-[10px] text-oguogu-gray-4">동글동글 감자를 모여앉아 친구들과 함께 수확해봐요.</p>
         {/* 가격 정보 */}
-        <div className="text-[12px] flex gap-1">
+        <div className="text-[12px] flex gap-1 items-end">
           <span className="text-oguogu-main hidden">59%</span>
           <span>10,000원</span>
           <span className="text-[10px]">/ 1인</span>
         </div>
+
         {/* 좋아요 & 별점 */}
-        <div className="text-[8px] flex gap-2 text-oguogu-gray-3">
+        {/* <div className="text-[8px] flex gap-2 text-oguogu-gray-3">
           <div className="flex gap-[2px]">
             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none">
               <path
@@ -61,8 +65,9 @@ export default function ExperienceItem() {
             </svg>
             <span>4.8 (1,280)</span>
           </div>
-        </div>
+        </div> */}
       </div>
+
       {/*상품 등록 버튼 */}
       {/*Link 경로가 홈으로 해둔 상태 파일 경로 만들어지면 수정 필요 */}
       <InteractionButton type="experience" />
